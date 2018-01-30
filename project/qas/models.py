@@ -14,7 +14,7 @@ class Race(models.Model):
     title = models.CharField(max_length=255)
     slug = models.SlugField()
     election = models.ForeignKey(Election, on_delete=models.CASCADE)
-    questions = ArrayField( models.TextField() )
+    # questions = ArrayField( models.TextField() )
 
     def __str__(self):
         return  self.title
@@ -32,7 +32,7 @@ class Candidate(models.Model):
     website = models.URLField(help_text="The url for the candidate's website.", blank=True)
     facebook = models.URLField(help_text="The url for the candidate's Facebook.", blank=True)
     twitter = models.URLField(help_text="The url for the candidate's Twitter.", blank=True)
-    responses = ArrayField( models.TextField() )
+    # responses = ArrayField( models.TextField() )
 
     def __str__(self):
-        return  self.name
+        return  "%s (%s)" % (self.name, self.race.election)
