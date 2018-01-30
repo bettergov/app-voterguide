@@ -1,0 +1,6 @@
+<h1>{{ race.title }}</h1>
+<ul>
+{% for candidate in race.candidate_set.all %}
+    <li>{{ candidate.name }}</li>
+{% endfor %}
+</ul>

@@ -1,0 +1,9 @@
+{% if all_races %}
+    <ul>
+    {% for race in all_races %}
+        <li><a href="{% url 'races:race' race.id %}">{{ race.title }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No races are available.</p>
+{% endif %}
