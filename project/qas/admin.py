@@ -3,6 +3,7 @@ from django.db import models
 from django.forms import Textarea
 
 from .models import Election, Race, Candidate, Question, Response
+from .forms import AddCandidate, AddRace
 
 # Register your models here.
 
@@ -10,6 +11,9 @@ class RaceInline(admin.TabularInline):
     model = Race
     extra = 0
     show_change_link = True
+    form = AddRace
+    ordering = ('title',)
+    exclude = ('slug',)
 
 class ElectionAdmin(admin.ModelAdmin):
     inlines = (RaceInline,)
@@ -28,18 +32,32 @@ class QuestionInline(admin.TabularInline):
 class CandidateInline(admin.TabularInline):
     model = Candidate
     extra = 0
-    exclude = ('website', 'facebook', 'twitter', 'occupation', 'experience')
+    fields = ('name', 'is_incumbent', 'party')
+    ordering = ('name',)
     show_change_link = True
+    form = AddCandidate
 
 class RaceAdmin(admin.ModelAdmin):
     inlines = (QuestionInline, CandidateInline)
+    form = AddRace
+    list_display = ('title', 'election', 'get_candidates', 'get_questions')
+    list_filter = ['election']
 
-    def has_delete_permission(self, request, obj=None): # note the obj=None
-        return False
+    def get_questions(self, obj):
+        questions = obj.question_set.all()
+        return len(questions)
+    get_questions.short_description = 'Questions'
+
+    def get_candidates(self, obj):
+        candidates = obj.candidate_set.all()
+        return len(candidates)
+    get_candidates.short_description = 'Candidates'
 
 class ResponseInline(admin.StackedInline):
     model = Response
     extra = 0
+    fields = ('question', 'response_text')
+    ordering = ('question__question_text',)
 
     def formfield_for_foreignkey(self, db_field, request=None, **kwargs):
 
@@ -55,14 +73,31 @@ class ResponseInline(admin.StackedInline):
 
 class CandidateAdmin(admin.ModelAdmin):
     inlines = (ResponseInline,)
+    form = AddCandidate
 
     def get_form(self, request, obj=None, **kwargs):
         # just save obj reference for future processing in Inline
         request._obj_ = obj
         return super(CandidateAdmin, self).get_form(request, obj, **kwargs)
+    
+    list_display = ('name', 'get_race', 'get_election', 'get_responses', 'time_updated')
+    list_filter = ['race']
+    ordering = ('-time_updated',)
 
-    def has_delete_permission(self, request, obj=None): # note the obj=None
-        return False
+    def get_race(self, obj):
+        return obj.race.title
+    get_race.admin_order_field  = 'race' # Allows column order sorting
+    get_race.short_description = "Race" # Rename column head
+
+    def get_election(self, obj):
+        return obj.race.election.title
+    get_election.short_description = "Election" # Rename column head
+
+    def get_responses(self, obj):
+        responses = obj.response_set.all()
+        questions = obj.race.question_set.all()
+        return "%s/%s" % (len(responses), len(questions))
+    get_responses.short_description = 'Responses'
 
 admin.site.register(Election, ElectionAdmin)
 admin.site.register(Race, RaceAdmin)
