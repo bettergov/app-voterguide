@@ -31,6 +31,8 @@ class Candidate(models.Model):
     website = models.URLField(help_text="The url for the candidate's website.", blank=True)
     facebook = models.URLField(help_text="The url for the candidate's Facebook.", blank=True)
     twitter = models.URLField(help_text="The url for the candidate's Twitter.", blank=True)
+    occupation = models.TextField(blank=True)
+    experience = models.TextField("Elected offices held and civic involvement", blank=True)
     # responses = ArrayField( Response() )
 
     def __str__(self):
