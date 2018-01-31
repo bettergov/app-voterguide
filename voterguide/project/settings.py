@@ -25,7 +25,10 @@ SECRET_KEY = '55bg!26p+399rnh$-8++h6l%l+2o1(381^p)2ejgm^pck5zi!='
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.elasticbeanstalk.com']
+ALLOWED_HOSTS = [
+    '.elasticbeanstalk.com',
+    '127.0.0.1'
+    ]
 
 
 # Application definition
@@ -138,7 +141,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
-STATIC_ROOT = os.path.join(PROJECT_DIR, "..", "www", 'static')
+STATIC_ROOT = os.path.join(PROJECT_DIR, "..", "..", "www", 'static')
 STATIC_URL = '/static/'
 
 # CKEditor configuration
