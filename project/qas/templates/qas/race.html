@@ -1,6 +1,27 @@
 <h1>{{ race.title }}</h1>
+<h2>Candidates:</h2>
 <ul>
 {% for candidate in race.candidate_set.all %}
-    <li>{{ candidate.name }}</li>
+<p>
+    {% autoescape off %}
+    <li>Name: {{ candidate.name }}</li>
+    <li>Party: {{ candidate.party }}</li>
+    <li>Website: <a href="{{ candidate.website }}">{{ candidate.website }}</a></li>
+    <li>Facebook: <a href="{{ candidate.facebook }}">{{ candidate.facebook }}</a></li>
+    <li>Twitter: <a href="{{ candidate.twitter }}">{{ candidate.twitter }}</a></li>
+    <li>Occupation: {{ candidate.occupation }}</li>
+    <li>Elected offices held and civic involvement: {{candidate.experience }}</li>
+    {% endautoescape %}
+</p>
+{% endfor %}
+
+<h2>Questions:</h2>
+{% for question in race.question_set.all %}
+<h3>{{ question.question_text }}</h3>
+    {% for response in question.response_set.all %}
+    {% autoescape off %}
+    <p><strong>{{ response.candidate.name }}:</strong> {{ response.response_text }}</p>
+    {% endautoescape %}
+    {% endfor %}
 {% endfor %}
 </ul>
