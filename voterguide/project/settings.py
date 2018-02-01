@@ -148,6 +148,10 @@ STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(PROJECT_DIR, "..", "..", "www", 'media')
 MEDIA_URL = '/media/'
 
+STATICFILES_DIRS = [
+    os.path.join(PROJECT_DIR, "..", 'static')
+]
+
 # CKEditor configuration
 # https://docs.ckeditor.com/ckeditor4/latest/guide/dev_configuration.html
 
@@ -177,8 +181,6 @@ AWS_S3_CUSTOM_DOMAIN = AWS_STORAGE_BUCKET_NAME
 
 # Tell the staticfiles app to use S3Boto3 storage when writing the collected
 # static files (when you run `collectstatic`).
-STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-
 STATICFILES_LOCATION = os.path.join(PROJECT_NAME, 'static')
 STATICFILES_STORAGE = 'custom_storages.StaticStorage'
 

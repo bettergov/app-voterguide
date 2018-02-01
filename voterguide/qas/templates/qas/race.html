@@ -1,10 +1,14 @@
 <meta name="robots" content="noindex">
 
+{% load static %}
+<link rel="stylesheet" href="{% static "app/app.css" %}">
+
 <h1>{{ race.title }}</h1>
 <h2>Candidates:</h2>
-<ul>
+
 {% for candidate in race.candidate_set.all %}
 <p>
+    <ul>
     {% autoescape off %}
     {% if candidate.image %}
     <img src="{{ candidate.image.url }}">
@@ -17,11 +21,12 @@
     <li>Occupation: {{ candidate.occupation }}</li>
     <li>Elected offices held and civic involvement: {{candidate.experience }}</li>
     {% endautoescape %}
+    </ul>
 </p>
 {% endfor %}
-</ul>
 
 <h2>Questions:</h2>
+<ul>
 {% for question in race.question_set.all %}
 <h3>{{ question.question_text }}</h3>
     {% for response in question.response_set.all %}
