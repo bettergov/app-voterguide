@@ -6,6 +6,9 @@
 {% for candidate in race.candidate_set.all %}
 <p>
     {% autoescape off %}
+    {% if candidate.image %}
+    <img src="{{ candidate.image.url }}">
+    {% endif %}
     <li>Name: {{ candidate.name }}</li>
     <li>Party: {{ candidate.party }}</li>
     <li>Website: <a href="{{ candidate.website }}">{{ candidate.website }}</a></li>
