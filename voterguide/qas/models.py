@@ -28,6 +28,7 @@ class Candidate(models.Model):
     time_added = models.DateTimeField(auto_now_add=True)
     time_updated = models.DateTimeField(auto_now=True)
     race = models.ForeignKey(Race, on_delete=models.CASCADE)
+    image = models.ImageField(null=True)
     is_incumbent = models.BooleanField()
     PARTY_CHOICES = (
         ('GOP', 'Republican'),
