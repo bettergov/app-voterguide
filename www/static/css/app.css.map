@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AAIA,IAAK;EACD,WAAW,EAAE,UAAU;;AAG3B,cAAe;EAAE,UAAU,EAAE,IAAI",
-"sources": ["../sass/_layout.scss"],
-"names": [],
-"file": "app.css"
-}

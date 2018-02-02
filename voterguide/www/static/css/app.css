@@ -1,0 +1,36 @@
+body {
+  font-family: sans-serif; }
+
+main {
+  max-width: 60em;
+  margin: 0 auto; }
+
+.candidates {
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  flex-wrap: wrap; }
+
+.candidate-bio {
+  background: #eee;
+  margin: 0 .5em 1em;
+  flex: 1 0 25%; }
+
+.questions {
+  list-style: none;
+  padding-left: 0; }
+
+.response {
+  background: #F8F5F0;
+  border-bottom: 2px solid #f1ecda;
+  display: flex; }
+
+.response__mug {
+  width: 100px;
+  padding-right: 25px; }
+
+.response__mug__img {
+  border-radius: 50%;
+  max-width: 100%; }
+
+/*# sourceMappingURL=app.css.map */

@@ -142,12 +142,15 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
-STATIC_ROOT = os.path.join(PROJECT_DIR, "..", "..", "www", 'static')
+# STATIC_ROOT = os.path.join(PROJECT_DIR, "..", "www", 'static')
 STATIC_URL = '/static/'
 
-MEDIA_ROOT = os.path.join(PROJECT_DIR, "..", "..", "www", 'media')
+MEDIA_ROOT = os.path.join(PROJECT_DIR, "..", "www", 'media')
 MEDIA_URL = '/media/'
 
+STATICFILES_DIRS = [
+    os.path.join(PROJECT_DIR, "..", 'www', 'static')
+]
 
 # CKEditor configuration
 # https://docs.ckeditor.com/ckeditor4/latest/guide/dev_configuration.html

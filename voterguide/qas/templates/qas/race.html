@@ -1,38 +1,77 @@
+<head>
 <meta name="robots" content="noindex">
-
 {% load static %}
 <link rel="stylesheet" href="{% static "css/app.css" %}">
+</head>
 
+<body>
+<main>
 <h1>{{ race.title }}</h1>
 <h2>Candidates:</h2>
 
+<ul class="candidates">
 {% for candidate in race.candidate_set.all %}
-<div class="candidate-bio">
+<li class="candidate-bio" id="candidate-{{candidate.pk}}">
     <ul>
     {% autoescape off %}
     {% if candidate.image %}
     <img src="{{ candidate.image.url }}">
     {% endif %}
     <li>Name: {{ candidate.name }}</li>
-    <li>Party: {{ candidate.party }}</li>
     <li>Website: <a href="{{ candidate.website }}">{{ candidate.website }}</a></li>
     <li>Facebook: <a href="{{ candidate.facebook }}">{{ candidate.facebook }}</a></li>
     <li>Twitter: <a href="{{ candidate.twitter }}">{{ candidate.twitter }}</a></li>
     <li>Occupation: {{ candidate.occupation }}</li>
-    <li>Elected offices held and civic involvement: {{candidate.experience }}</li>
     {% endautoescape %}
     </ul>
-</div>
-{% endfor %}
-
-<h2>Questions:</h2>
-<ul>
-{% for question in race.question_set.all %}
-<h3>{{ question.question_text }}</h3>
-    {% for response in question.response_set.all %}
-    {% autoescape off %}
-    <p><strong>{{ response.candidate.name }}:</strong> {{ response.response_text }}</p>
-    {% endautoescape %}
-    {% endfor %}
+</li>
 {% endfor %}
 </ul>
+
+<h2>Questions:</h2>
+<ol class="questions">
+    <li class="question">
+        <h3>Elected offices held and civic involvement</h3>
+        {% for candidate in race.candidate_set.all %}
+            {% if candidate.experience %}
+            <div class="response">
+                <div class="response__mug">
+                    {% if candidate.image %}
+                    <img class="response__mug__img" src="{{ candidate.image.url }}">
+                    {% endif %}
+                    <div class="response__mug__name">{{ candidate.name }}</div>
+                </div>
+
+                <div class="response__text">
+                {% autoescape off %}
+                {{ candidate.experience }}
+                {% endautoescape %}
+                </div>
+            </div>
+            {% endif %}
+        {% endfor %}
+    </li>
+{% for question in race.question_set.all %}
+    <li class="question" id="question-{{ question.pk }}">
+    <h3 class="question">{{ question.question_text }}</h3>
+        {% for response in question.response_set.all %}
+            <div class="response">
+                <div class="response__mug">
+                    {% if response.candidate.image %}
+                    <img class="response__mug__img" src="{{ response.candidate.image.url }}">
+                    {% endif %}
+                    <div class="response__mug__name">{{ response.candidate.name }}</div>
+                </div>
+
+                <div class="response__text">
+                {% autoescape off %}
+                {{ response.response_text }}
+                {% endautoescape %}
+                </div>
+            </div>
+        {% endfor %}
+    {% endfor %}
+    </li>
+</ol>
+</main>
+</body>
