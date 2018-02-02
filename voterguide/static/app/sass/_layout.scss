@@ -1,0 +1,9 @@
+@import '../vendor/column-setter/reset';
+@import '../vendor/column-setter/column-settings';
+@import '../vendor/column-setter/column-setter';
+
+body {
+    font-family: sans-serif;
+}
+
+.candidate-bio { background: #eee; }

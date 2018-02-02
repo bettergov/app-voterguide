@@ -7,7 +7,7 @@
 <h2>Candidates:</h2>
 
 {% for candidate in race.candidate_set.all %}
-<p>
+<div class="candidate-bio">
     <ul>
     {% autoescape off %}
     {% if candidate.image %}
@@ -22,7 +22,7 @@
     <li>Elected offices held and civic involvement: {{candidate.experience }}</li>
     {% endautoescape %}
     </ul>
-</p>
+</div>
 {% endfor %}
 
 <h2>Questions:</h2>
