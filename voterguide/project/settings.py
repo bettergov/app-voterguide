@@ -148,9 +148,6 @@ STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(PROJECT_DIR, "..", "..", "www", 'media')
 MEDIA_URL = '/media/'
 
-STATICFILES_DIRS = [
-    os.path.join(PROJECT_DIR, "..", '..', 'www', 'static')
-]
 
 # CKEditor configuration
 # https://docs.ckeditor.com/ckeditor4/latest/guide/dev_configuration.html
