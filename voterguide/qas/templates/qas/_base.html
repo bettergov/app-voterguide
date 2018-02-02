@@ -3,38 +3,26 @@
 
 <head>
 
-    <title>{{ COPY.content.project_name }}</title>
+    <title>BGA Voter Guide</title>
 
-    <!-- META TAGS -->
-    {% include '_meta.html' %}
-
-    <!-- FONTS -->
-    {% include '_fonts.html' %}
+    <meta name="robots" content="noindex">
 
     <!-- CSS -->
-    {{ CSS.push('less/app.less') }}
-    {% block extra_css %}{% endblock extra_css %}
-    {{ CSS.render('css/rendered/app.min.css') }}
+    {% load static %}
+    <link rel="stylesheet" href="{% static "css/app.css" %}">
 
-    {% include '_social_tags.html' %}
+    <!-- JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 
     {% block extra_head %}
     {% endblock extra_head %}
 </head>
 <body>
-    <!-- ANALYTICS JAVASCRIPT -->
-    {{ JS.push('js/lib/modernizr.js') }}
-    {{ JS.push('js/lib/cookie.js') }}
-    {{ JS.push('js/lib/es6-promise.js') }}
-    {{ JS.push('js/lib/cross-storage-client.js') }}
-    {{ JS.push('js/app_config.js') }}
-    {{ JS.push('js/analytics.js') }}
-    {{ JS.render('js/app-header.min.js') }}
 
     <a class="sr-only" href="#content">Skip To Content</a>
 
     {% block nav %}
-    <nav role="navigation">
+    <!-- <nav role="navigation">
         <ul class="site-links">
             <li class="npr"><a href="http://npr.org"><img src="http://media.npr.org/chrome/news/nprlogo_138x46.gif" alt="NPR" /></a></li>
             <li class="news"><a href="http://www.npr.org/sections/news/">News</a></li>
@@ -47,7 +35,7 @@
             <li class="donate"><a href="http://www.npr.org/stations/donate/index.php">Donate</a></li>
             <li class="shop"><a href="http://shop.npr.org">Shop</a></li>
         </ul>
-    </nav>
+    </nav> -->
     {% endblock nav %}
 
     {% block header_content %}
@@ -57,7 +45,7 @@
     {% endblock content %}
 
     {% block footer %}
-    <footer>
+    <!-- <footer>
         <div class="primary">
             <ul>
                 <li><a href="http://www.npr.org" data-action="Click Logo"><img src="http://media.npr.org/chrome/news/nprlogo_138x46.gif" alt="NPR Logo"></a></li>
@@ -78,26 +66,8 @@
                 <li><a href="http://thin.npr.org/">Text-Only</a></li>
             </ul>
         </div>
-    </footer>
+    </footer> -->
     {% endblock footer %}
-
-    {{ JS.push('js/lib/jquery.js') }}
-    {{ JS.push('js/lib/underscore.js') }}
-    {{ JS.push('js/lib/moment.js') }}
-
-    {# uncomment both files to use simpleStorage #}
-    {# {{ JS.push('js/lib/simpleStorage.js') }} #}
-    {# {{ JS.push('js/storage.js') }} #}
-
-    {% if RELOAD_TRIGGER %}
-    {{ JS.push('js/reload.js') }}
-    {% endif %}
-
-    {{ JS.push('js/copy.js') }}
-    {{ JS.push('js/templates.js') }}
-    {{ JS.push('js/app.js') }}
-    {% block extra_foot_js %}{% endblock extra_foot_js %}
-    {{ JS.render('js/app-footer.min.js') }}
 
     {% block extra_foot %}
     {% endblock extra_foot %}

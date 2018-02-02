@@ -1,5 +1,19 @@
+p,
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0; }
+
 body {
   font-family: sans-serif; }
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0; }
 
 main {
   max-width: 60em;
@@ -12,18 +26,52 @@ main {
   flex-wrap: wrap; }
 
 .candidate-bio {
-  background: #eee;
+  background: #F8F5F0;
+  border-bottom: 2px solid #f1ecda;
   margin: 0 .5em 1em;
-  flex: 1 0 25%; }
+  padding: .5em;
+  flex: 1 0 25%;
+  display: flex; }
+
+.candidate-bio__name {
+  margin-bottom: .5em; }
+
+.candidate-bio__occupation {
+  font-size: .9em;
+  margin-bottom: .5em; }
+
+.candidate-bio__image {
+  border-radius: 50%;
+  max-width: 100%;
+  margin-right: 1em;
+  flex: 1 0 80px;
+  align-self: flex-start; }
+
+.candidate-bio__links {
+  list-style: none;
+  padding-left: 0;
+  font-size: 1.2em; }
+  .candidate-bio__links > * {
+    display: inline-block;
+    margin-right: .4em; }
+  .candidate-bio__links a {
+    color: #c6c6c6; }
+  .candidate-bio__links a:hover, .candidate-bio__links a:focus {
+    color: #b19c56; }
 
 .questions {
   list-style: none;
   padding-left: 0; }
 
+.question {
+  margin-bottom: 2em; }
+
 .response {
   background: #F8F5F0;
   border-bottom: 2px solid #f1ecda;
-  display: flex; }
+  display: flex;
+  padding: 1em;
+  margin-bottom: 1em; }
 
 .response__mug {
   width: 100px;
