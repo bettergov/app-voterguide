@@ -7,5 +7,7 @@ urlpatterns = [
     # ex: /races/
     path('', views.index, name='index'),
     # ex: /races/1/
-    path('<int:race_id>/', views.race, name="race")
+    path('<int:race_id>/', views.raceFromId, name="race"),
+    # ex: /races/governor-dem
+    path('<slug:race_slug>/', views.race, name="race")
 ]

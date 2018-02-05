@@ -7,6 +7,10 @@ def index(request):
     context = { 'all_races': all_races }
     return render(request, 'qas/index.html', context)
 
-def race(request, race_id):
+def race(request, race_slug):
+    race = get_object_or_404(Race, slug=race_slug)
+    return render(request, 'qas/race.html', {'race': race })
+
+def raceFromId(request, race_id):
     race = get_object_or_404(Race, pk=race_id)
     return render(request, 'qas/race.html', { 'race': race })

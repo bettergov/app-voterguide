@@ -558,7 +558,8 @@ p {
   .candidate-bio__links a {
     color: #c6c6c6; }
   .candidate-bio__links a:hover, .candidate-bio__links a:focus {
-    color: #b19c56; }
+    color: #b19c56;
+    background: none; }
 
 .questions {
   list-style: none;
