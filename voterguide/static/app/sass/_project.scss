@@ -83,7 +83,10 @@ p { font: 1em/1.2 $font-family-sans-serif; }
 
 // App layout
 // -------------------------
-#content { width: 70em; }
+#content { 
+    width: 70em;
+    // min-height: calc(100vh - 40px - 100px);
+}
 
 
 // App behavior

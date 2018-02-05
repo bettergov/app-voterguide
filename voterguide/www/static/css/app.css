@@ -137,10 +137,7 @@ article > footer {
 .story-nav {
   background: #c6c6c6;
   height: 40px;
-  position: absolute;
-  top: 0;
-  width: 100%;
-  z-index: 99; }
+  position: relative; }
   .story-nav > * {
     display: inline-block;
     height: inherit;
@@ -227,7 +224,8 @@ article > footer {
     display: block; }
   .story-nav.pinned:not(.no-stick) {
     position: fixed;
-    top: 0; }
+    top: 0;
+    z-index: 99; }
 
 @media screen and (min-width: 0) {
   .story-nav > h1 {
@@ -311,13 +309,14 @@ a[role="button"]:not([class*="leaflet-control"]),
   .chapter-menu > ul > li > a {
     display: inline-block; } }
 footer[role="contentinfo"] {
-  color: white;
-  background: #555;
   height: auto;
   padding: 0;
   padding-top: 2rem;
   padding-bottom: 1rem;
   width: 100%; }
+  footer[role="contentinfo"] a {
+    color: #333;
+    text-decoration: none; }
   footer[role="contentinfo"] .footer-wrapper > a {
     margin-bottom: 10px; }
     footer[role="contentinfo"] .footer-wrapper > a:hover, footer[role="contentinfo"] .footer-wrapper > a:focus, footer[role="contentinfo"] .footer-wrapper > a:active {
@@ -369,11 +368,10 @@ footer[role="contentinfo"] {
     margin-left: 15%;
     margin-bottom: 20px;
     width: 70%;
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid #333;
     display: block; }
   footer[role="contentinfo"] ul {
     list-style: none;
-    color: white;
     margin-bottom: 0;
     font-size: .8em;
     padding: 0; }
@@ -382,11 +380,6 @@ footer[role="contentinfo"] {
     footer[role="contentinfo"] li:not(:last-child)::after {
       content: "•";
       padding: 0 10px 0 5px; }
-  footer[role="contentinfo"] a {
-    color: white; }
-    footer[role="contentinfo"] a:hover {
-      background-color: transparent;
-      color: #ffd600; }
   footer[role="contentinfo"] .credits {
     font-size: .8em; }
 

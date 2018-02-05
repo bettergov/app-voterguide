@@ -3,10 +3,7 @@
 .story-nav {
     background: $gray-lighter;
     height: 40px;
-    position: absolute;
-    top: 0;
-    width: 100%;
-    z-index: 99;
+    position: relative;
 
     > * {
         display: inline-block;
@@ -128,6 +125,7 @@
     &.pinned:not(.no-stick) {
         position: fixed;
         top: 0;
+        z-index: 99;
     }
 }
 

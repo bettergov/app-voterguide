@@ -33,7 +33,7 @@
     {% block nav %}
     <header role="banner" class="story-nav">
         <h1><a href="https://www.bettergov.org" target="_blank">Better Government Association</a></h1>
-        <a href="index.html"><h2><span class='series-hed'>Voter Guide</span></h2></a>
+        <a href="/"><h2><span class='series-hed'>Voter Guide</span></h2></a>
         <nav class="actions">
             <a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u={{ request.get_full_path }}&amp;t={{ title }}"
             onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
@@ -55,28 +55,16 @@
     {% endblock content %}
 
     {% block footer %}
-    <!-- <footer>
-        <div class="primary">
+    <footer role="contentinfo">
+        <div class="footer-wrapper">
+            <div class="divider"></div>
             <ul>
-                <li><a href="http://www.npr.org" data-action="Click Logo"><img src="http://media.npr.org/chrome/news/nprlogo_138x46.gif" alt="NPR Logo"></a></li>
-                <li class="news"><a href="http://www.npr.org/sections/news/">News</a></li>
-                <li class="artslife"><a href="http://www.npr.org/sections/arts/">Arts &amp; Life</a></li>
-                <li class="music"><a href="http://www.npr.org/music/">Music</a></li>
-                <li class="programs"><a href="http://www.npr.org/programs/">Programs</a></li>
-                <li class="listen"><a href="http://www.npr.org/listen/">Listen</a></li>
-                <li class="about"><a href="http://www.npr.org/about/">About</a></li>
+                <li>&#169; 2017 Better Government Association, Inc.</li>
+                <li><a href="https://www.bettergov.org/terms-conditions">Terms &amp; conditions</a></li>
+                <li><a href="https://www.bettergov.org/privacy-policy">Privacy policy</a></li>
             </ul>
         </div>
-        <div class="secondary">
-            <p>&copy;2016 NPR</p>
-            <ul>
-                <li id="footerContact"><a href="http://help.npr.org/npr/includes/customer/npr/custforms/contactus.aspx">Contact</a></li>
-                <li><a href="http://www.npr.org/about/termsofuse.html">Terms of Use</a></li>
-                <li><a href="http://www.npr.org/about/privacypolicy.html">Privacy</a></li>
-                <li><a href="http://thin.npr.org/">Text-Only</a></li>
-            </ul>
-        </div>
-    </footer> -->
+    </footer>
     {% endblock footer %}
 
     {% block extra_foot %}

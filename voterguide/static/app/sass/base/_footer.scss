@@ -1,14 +1,16 @@
 // Site footer
 // -------------------------
 footer[role="contentinfo"] {
-    color: white;
-    // background-color: @blue-bga;
-    background: $gray;
     height: auto;
     padding: 0;
     padding-top: 2rem;
     padding-bottom: 1rem;
     width: 100%;
+
+    a { 
+        color: #333;
+        text-decoration: none;
+    }
 
     .footer-wrapper > a {
         &:hover,
@@ -77,13 +79,12 @@ footer[role="contentinfo"] {
         margin-left: 15%;
         margin-bottom: 20px;
         width   : 70%;
-        border-bottom: 1px solid white;
+        border-bottom: 1px solid #333;
         display: block;
     }
 
     ul {
         list-style: none;
-        color: white;
         margin-bottom: 0;
         //margin-left: 1rem;
         font-size: .8em;
@@ -97,11 +98,6 @@ footer[role="contentinfo"] {
             padding: 0 10px 0 5px;
         }
 
-    }
-
-    a {
-        color: white;
-        &:hover { background-color: transparent; color: #ffd600; }
     }
 
     .credits { font-size: .8em; }
