@@ -1,1 +1,9 @@
-@import 'layout';
+// @import '../vendor/column-setter/reset';
+@import '../vendor/column-setter/column-settings';
+@import '../vendor/column-setter/column-setter';
+
+@import 'vars';
+
+@import 'base/partials';
+
+@import 'project';

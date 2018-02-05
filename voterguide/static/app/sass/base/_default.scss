@@ -1,0 +1,73 @@
+// General elements
+// -------------------------
+html {
+    font: 15px/1 $font-family-sans-serif;
+}
+
+p { 
+    font: 1em/1.6 $font-family-serif;
+    margin: 0 0 1.6em 0;
+}
+
+a:focus,
+a:hover {
+    color: $blue-bga;
+    text-decoration: none;
+    background-color: $yellow-highlight;
+}
+
+
+// General layout
+// -------------------------
+#content {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+hr {
+    width: 70%;
+    margin: 1.6em 15%;
+}
+
+[class*="align-"] {
+    margin: 0 auto 1.6em;
+
+    &.align-right {
+        float: right;
+        margin-left: 1.6em;
+    }
+
+    &.align-left {
+        float: left;
+        margin-right: 1.6em;
+    }
+
+    &.align-center {
+        float: none;
+        margin: inherit auto;
+    }
+}
+
+
+// General behavior
+// -------------------------
+a { transition: all .5s; }
+
+::selection,                        /* WebKit/Blink Browsers */
+::-moz-selection {                  /* Gecko Browsers */
+    background: $yellow-highlight; 
+}
+::-moz-selection {
+    background: $yellow-highlight;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+}

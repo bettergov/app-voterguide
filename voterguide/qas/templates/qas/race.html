@@ -2,7 +2,7 @@
 
 {% block content %}
 <main id="content">
-    <h1>{{ race.title }}</h1>
+    <h1 class="headline">{{ race.title }}</h1>
     <h2>Candidates:</h2>
 
     <ul class="candidates">
@@ -51,25 +51,25 @@
         </li>
     {% for question in race.question_set.all %}
         <li class="question" id="question-{{ question.pk }}">
-        <h3 class="question__text">{{ question.question_text }}</h3>
+            <h3 class="question__text">{{ question.question_text }}</h3>
             {% for response in question.response_set.all %}
-                <div class="response">
-                    <div class="response__mug">
-                        {% if response.candidate.image %}
-                        <img class="response__mug__img" src="{{ response.candidate.image.url }}">
-                        {% endif %}
-                        <div class="response__mug__name">{{ response.candidate.name }}</div>
-                    </div>
-
-                    <div class="response__text">
-                    {% autoescape off %}
-                    {{ response.response_text }}
-                    {% endautoescape %}
-                    </div>
+            <div class="response">
+                <div class="response__mug">
+                    {% if response.candidate.image %}
+                    <img class="response__mug__img" src="{{ response.candidate.image.url }}">
+                    {% endif %}
+                    <div class="response__mug__name">{{ response.candidate.name }}</div>
                 </div>
+
+                <div class="response__text">
+                {% autoescape off %}
+                    {{ response.response_text }}
+                {% endautoescape %}
+                </div>
+            </div>
             {% endfor %}
-        {% endfor %}
         </li>
+        {% endfor %}
     </ol>
 </main>
 {% endblock content %}

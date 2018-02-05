@@ -1,31 +1,6 @@
-// @import '../vendor/column-setter/reset';
-@import '../vendor/column-setter/column-settings';
-@import '../vendor/column-setter/column-setter';
-
-p,
-h1, h2, h3, h4, h5, h6 {
-    margin-top: 0;
-}
-
-body {
-    font-family: sans-serif;
-}
-
-.sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0,0,0,0);
-    border: 0;
-}
-
-main { 
-    max-width: 60em;
-    margin: 0 auto;
-}
+// App elements
+// -------------------------
+p { font: 1em/1.2 $font-family-sans-serif; }
 
 .candidates { 
     list-style: none;
@@ -103,3 +78,13 @@ main {
     border-radius: 50%;
     max-width: 100%;
 }
+
+
+// App layout
+// -------------------------
+#content { width: 70em; }
+
+
+// App behavior
+// -------------------------
+

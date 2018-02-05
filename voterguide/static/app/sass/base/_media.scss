@@ -1,0 +1,65 @@
+// Media elements -- Images, video, embeds, etc.
+// -------------------------
+.media {
+    margin: 0 auto 1.6em;
+
+    :first-child { 
+        @include breakpoint-min( xs ) { @include full-width; }
+        @include breakpoint-min( sm ) { width: 100%; }
+    }
+
+    // TODO
+    &.jumbo { max-width: 50em; }
+    
+    &.large { max-width: 30em; }
+        
+    &.medium { max-width: 20em; }
+        
+    &.small { max-width: 10em; }
+}
+
+//TODO
+@include breakpoint-min( sm ) {
+    article > main > .small.align-right {
+        float: right;
+        margin-left: 20px;
+    }
+  
+    article > main > .small.align-left {
+        float: left;
+        margin-right: 20px;
+    }
+}
+  
+@include breakpoint-min ( md ) {
+    article > main > .medium.align-right {
+        float: right;
+        margin-left: 20px;
+    }
+  
+    article > main > .medium.align-left {
+        float: left;
+        margin-right: 20px;
+    }
+}
+  
+@include breakpoint-min( lg ) {
+    article > main > .large.align-right {
+        float: right;
+        margin-left: 20px;
+    }
+  
+    article > main > .large.align-left {
+        float: left;
+        margin-right: 20px;
+    }
+}
+
+.caption {
+    font: .8em/1.2 $font-family-sans-serif;
+    color: #555;
+}
+
+.caption__credit {
+    font-size: .8em;
+}

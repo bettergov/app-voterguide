@@ -1,0 +1,108 @@
+// Site footer
+// -------------------------
+footer[role="contentinfo"] {
+    color: white;
+    // background-color: @blue-bga;
+    background: $gray;
+    height: auto;
+    padding: 0;
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+    width: 100%;
+
+    .footer-wrapper > a {
+        &:hover,
+        &:focus,
+        &:active {
+            background: none;
+        }
+        margin-bottom: 10px;
+    }
+
+    .series-hed {
+        // background: url("https://projects.bettergov.org/taking-cover/images/taking-cover-logo-white.png") no-repeat center;
+        // background-size: contain;
+        // width: 380px;
+        margin-top: 0;
+        max-width: 100%;
+        display: inline-block;
+        padding: 0 10px;
+        background: #ffd600;
+        text-transform: uppercase;
+        font-family: $font-family-condensed;
+        line-height: 1.35;
+        color: $gray;
+        font-weight: bold;
+    }
+
+    .series-description { margin-bottom: 1rem; line-height: 1.2; }
+
+    .chapters { display: block; margin-bottom: 1rem; }
+
+    .footer-wrapper { 
+        width: 845px;
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    h1 {
+        display: block;
+        height: calc(59px + .75rem);
+        margin: 0;
+        padding-top: .5rem;
+        //margin-left: 1rem;
+        //margin-right: 1rem;
+        padding-bottom: .25rem;
+        padding: 0;
+        width: 400px;
+        max-width: 100%;
+
+        a {
+            background: url("https://media.bettergov.org/BGA_full_flag.png") no-repeat center;
+            background-size: contain;
+            display: block;
+            height: inherit;
+            overflow: hidden;
+            text-indent: 100%;
+            white-space: nowrap;
+        }
+    }
+
+    .divider:before {
+        content : "";
+        height  : 1px;
+        margin-left: 15%;
+        margin-bottom: 20px;
+        width   : 70%;
+        border-bottom: 1px solid white;
+        display: block;
+    }
+
+    ul {
+        list-style: none;
+        color: white;
+        margin-bottom: 0;
+        //margin-left: 1rem;
+        font-size: .8em;
+        padding: 0;
+    }
+
+    li {
+        display: inline-block;
+        &:not(:last-child)::after {
+            content: "•";
+            padding: 0 10px 0 5px;
+        }
+
+    }
+
+    a {
+        color: white;
+        &:hover { background-color: transparent; color: #ffd600; }
+    }
+
+    .credits { font-size: .8em; }
+}

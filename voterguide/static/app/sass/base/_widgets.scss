@@ -1,0 +1,101 @@
+// Widgets/CTAS
+// -------------------------
+.refer {
+    display: block;
+    overflow: hidden;
+    padding: 10px;
+  
+    img {
+        margin-bottom: 0;
+    }
+  
+    .headline {
+        font-size: 1em;
+    }
+  
+    .wrapper {
+        margin-bottom: .5em;
+    }
+  
+    a:hover {
+        background-color: transparent;
+      
+        .headline { background-color: $yellow-highlight; }
+    }
+}
+  
+.boxed {
+    -webkit-box-shadow: 0 0 3px rgba(2, 3, 3, 0.15);
+    box-shadow: 0 0 3px rgba(2, 3, 3, 0.15);
+}
+  
+iframe {
+    max-width: 100%;
+}
+  
+.series {
+    > a > .headline {
+        color: #333;
+        display: inline-block;
+        text-transform: uppercase;
+    }
+  
+    .description {
+        font: 1em $font-family-sans-serif;
+        margin-bottom: .9em;
+    }
+  
+    .stories {
+        padding-left: 20px;
+    }
+  
+    article {
+        font-size: .9em;
+        margin-bottom: .9em;
+    }
+}
+  
+.action {
+    // background: @gray-lighter;
+    border: 6px solid $story-accent;
+    padding: 1rem;
+  
+    .icon {
+        float: left;
+        display: block; 
+        font-size: 1.5em;
+        width: auto;
+        margin-right: .5em;
+    }
+  
+    .head {
+        font-weight: 700;
+        font-size: 1.2em;
+        margin-bottom: .5em;
+        line-height: 1.1;
+    }
+  
+    .copy { 
+        clear: both;
+        margin-bottom: 1em;
+        font-size: .9em;
+    }
+  
+    .action-link { 
+        text-align: center; 
+        font-family: $font-family-condensed; 
+        text-transform: uppercase;
+
+        a {
+            color: $gray;
+            background: $story-accent;
+            padding: 0 10px;
+            font-weight: bold;
+
+            &:hover, &:focus {
+                text-decoration: underline;
+                background: $story-accent;
+            }
+        }
+    } //TODO: Remove this div from markup?
+}

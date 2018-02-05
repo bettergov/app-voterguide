@@ -1,0 +1,149 @@
+// Story alignments
+// -------------------------
+main > article {
+    margin-bottom: 3em;
+}
+  
+article > header {
+    margin-bottom: 2em;
+}
+  
+article > main {
+    margin-bottom: 3em;
+}
+  
+article > footer {
+    width: 715px;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+  
+article > footer > * {
+    // margin-left: 20px;
+    // margin-right: 20px;
+}
+
+
+// Article elements
+// -------------------------
+
+.headline {
+    font: bold 2em/1.1 $font-family-condensed;
+    margin: 0 0 .8em 0;
+    box-decoration-break: clone;
+
+    @include breakpoint-min( sm ) { font-size: 2.5em; }
+}
+
+.deck {
+    font: normal 1.2em/1.2 $font-family-sans-serif;
+    color: $gray;
+}
+
+.kicker {
+    font: bold 1em $font-family-condensed;
+    color: $gray-light;
+    text-transform: uppercase;
+}
+
+.subhead {
+    font: 1.5em $font-family-condensed;
+}
+
+//TODO
+.meta {
+    font-size: 1em;
+    margin-bottom: 1em;
+
+    // > * {
+    //     display: block;
+    // }
+  
+    .byline .name {
+        font-weight: bold;
+        color: white;
+        
+        &:hover {
+            text-decoration: underline;
+            background: none;
+        }
+    }
+  
+    .dateline:before {
+        content: "|";
+        padding: 0 .5rem;
+    }
+}
+
+
+// Article footer
+// ------------------------- 
+
+.next-story {
+
+    > a {
+        display: block;
+        overflow: hidden;
+        background: transparent !important;
+
+        display: -webkit-flex;
+        display: flex;
+    }
+
+    // .story-art { 
+    //     max-width: 100%;
+    //     margin-bottom: 1.6em;
+    // }
+
+    .story-art {
+        align-self: flex-start;
+        // flex-basis: 45%;
+        -webkit-flex: 1 0 0;
+        flex: 1 0 0;
+        margin-right: 5%;
+        max-width: 35%;
+    }
+
+    .story-copy {
+        -webkit-flex: 2 0 0;
+        flex: 2 0 0;
+    }
+
+    .story-copy > p { 
+        font-family:  $font-family-sans-serif;
+        color: #555;
+        line-height: 1;
+        margin-bottom: 1em;
+    }
+
+    .story-hed { font-weight: 600; }
+
+    a:hover { 
+        .story-hed { text-decoration: underline; }
+    }
+
+    &:before {
+        content : "";
+        height  : 1px;
+        margin-left: 15%;
+        margin-bottom: 3em;
+        width   : 70%;
+        border-bottom: 1px solid $gray-lighter;
+        display: block;
+    }
+
+    // &:after {
+    //     content: "";
+    //     display: table;
+    //     clear: both;
+    // }
+}
+
+// @media screen and (min-width: @screen-xs-min) {
+//     .next-story .story-art {
+//         width: 40%;
+//         margin-right: 5%;
+//         float: left;
+//     }
+// }

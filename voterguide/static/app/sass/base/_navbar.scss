@@ -1,0 +1,241 @@
+// Navbar
+// -------------------------
+.story-nav {
+    background: $gray;
+    height: 40px;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+
+    > * {
+        display: inline-block;
+        height: inherit;
+        margin: 0;
+        padding: 0;
+        vertical-align: top;
+    }
+
+    a:focus { background-color: transparent; }
+
+
+    h1 {
+        margin-left: 0.2em;
+        width: 60px;
+
+        a {
+            background: url("https://media.bettergov.org/BGA_logo_blue.png") no-repeat center;
+            background-size: contain;
+            display: block;
+            height: inherit;
+            overflow: hidden;
+            text-indent: 100%;
+            filter: grayscale(1) brightness(2.5);
+        }
+
+        display: none;
+    }
+
+    &.no-stick h1,
+    &.no-stick .actions { display: inline-block; }
+
+    a { 
+        color: #787878;
+    }
+
+    a:hover h2 {
+        color: $story-accent;
+    }
+
+    h2 {
+        color: #787878;
+        font: 700 18px/30px $font-family-sans-serif;
+        height: 30px;
+        padding-left: .25em;
+        margin-left: .25em;
+        margin-top: 5px;
+        text-transform: uppercase;
+
+        font-family: $font-family-condensed;
+        font-size: 20px;
+        // display: none;
+    }
+
+    h3 {
+        font-size: .9em;
+        margin-top: 11px;
+        margin-left: .5em;
+        height: auto;
+        display: none;
+    }
+
+    nav {
+
+        &.stories {
+            position: absolute;
+            right: 1em;
+
+            a { margin-top: 7px; }
+            a.active { color: $story-accent; }
+        }
+
+        &.actions {
+            position: absolute;
+            right: 0.5em;
+            display: none;
+
+            a { margin-top: 5px; }
+        }
+        // display: none;
+
+        a {
+            display: inline-block;
+            font-size: 18px;
+            // color: @blue-bga;
+            color: #787878;
+        }
+
+        a:hover,
+        a:focus { color: $story-accent; }
+
+        a:not(:first-child) { margin-left: 0.5em; }
+
+        a::before { font: normal normal normal 18px/30px FontAwesome; }
+    }
+
+    .toggle {
+        margin-top: 14px;
+        font-size: .8em;
+        margin-left: .5em;
+        color: $blue-bga;
+        height: auto;
+
+        &:before {
+            content: "\f054";
+        }
+    }
+
+    a:hover { background-color: transparent; }
+
+    &.menu-active {
+        .toggle:before { content: "\f078"; }
+        .story-hed { display: none; }
+        .chapter-menu { display: block; }
+    }
+
+    &.pinned:not(.no-stick) {
+        position: fixed;
+        top: 0;
+    }
+}
+
+@include breakpoint-min( xs ) {
+    .story-nav > h1 { display: inline-block; }
+    .story-nav > a > h2 { border-left: solid 2px #787878; padding-left: .5em; }
+    .story-nav nav.stories {
+        position: relative;
+        right: auto;
+
+        &::before {
+            content: "\2014";
+            padding: 0 5px;
+            color: #787878;
+        }
+    }
+}
+
+@include breakpoint-min( sm ) {
+    .story-nav > nav.actions { display: inline-block; }
+}
+
+.facebook::before {
+    content: "\f09a";
+}
+
+.twitter::before {
+    content: "\f099";
+}
+
+.email:before {
+    content: "\f0e0";
+}
+
+.print:before {
+    content: "\f02f";
+}
+
+a[role="button"]:not([class*="leaflet-control"]), 
+.shootings-filters button {
+    // background-color: @blue-bga !important;
+    background-color: $story-accent !important;
+    border-radius: 10px;
+    // color: white !important;
+    color: $gray !important;
+    font: 700 18px/30px $font-family-condensed;
+    line-height: 1.2;
+    padding: 4px 10px 6px;
+    text-transform: uppercase;
+    border-color: transparent;
+
+    &:hover, &:focus, &:active {
+        // color: @blue-bga !important;
+        color: $story-accent !important;
+        background: transparent !important;
+    }
+}
+
+.series-hed { 
+    // background: url("https://projects.bettergov.org/taking-cover/images/nukes-series-hed.png") no-repeat center;
+    background-size: contain;
+    display: block;
+    height: inherit;
+    overflow: hidden;
+    // text-indent: 100%;
+    // width: 200px;
+}
+
+.chapter-menu {
+    position: absolute;
+    top: 40px;
+    left: 0;
+    background: white;
+    width: 100%;
+    border-bottom: solid 1px $gray-lighter;
+    height: auto;
+    overflow: hidden;
+    display: none; // hide by default
+
+    > ul {
+        margin-left: 23px;
+        padding-left: 0;
+        list-style: none;
+        margin-bottom: 0;
+
+        > li {
+            display: block;
+            margin-right: 1em;
+            font-size: .8em;
+            line-height: 2.5;
+            border-top: solid 1px $gray-lighter;
+
+            > a { 
+                display: block;
+                color: $gray;
+                transition: 0s;
+                background: transparent !important;
+            }
+            
+            > a.active,
+            &:hover > a {
+                color: $blue-bga;
+                font-weight: 600;
+            }
+        }
+    }
+}
+
+@include breakpoint-min ( sm ) {
+    .chapter-menu { height: 36px; }
+    .chapter-menu > ul > li { display: inline-block; border-top: none; }
+    .chapter-menu > ul > li > a { display: inline-block; }
+}
