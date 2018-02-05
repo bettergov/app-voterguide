@@ -1,6 +1,6 @@
 @charset "UTF-8";
 html {
-  font: 15px/1 acumin-pro, Helvetica, Arial, sans-serif; }
+  font: 15px/1.15 acumin-pro, Helvetica, Arial, sans-serif; }
 
 p {
   font: 1em/1.6 Georgia, "Times New Roman", Times, serif;
@@ -534,6 +534,7 @@ p {
   display: flex; }
 
 .candidate-bio__name {
+  margin: initial;
   margin-bottom: .5em; }
 
 .candidate-bio__occupation {
