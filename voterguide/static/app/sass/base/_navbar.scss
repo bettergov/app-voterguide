@@ -1,12 +1,12 @@
 // Navbar
 // -------------------------
 .story-nav {
-    background: $gray;
+    background: $gray-lighter;
     height: 40px;
     position: absolute;
     top: 0;
     width: 100%;
-    z-index: 999;
+    z-index: 99;
 
     > * {
         display: inline-block;
@@ -15,6 +15,8 @@
         padding: 0;
         vertical-align: top;
     }
+
+    a { text-decoration: none; }
 
     a:focus { background-color: transparent; }
 
@@ -146,22 +148,6 @@
 
 @include breakpoint-min( sm ) {
     .story-nav > nav.actions { display: inline-block; }
-}
-
-.facebook::before {
-    content: "\f09a";
-}
-
-.twitter::before {
-    content: "\f099";
-}
-
-.email:before {
-    content: "\f0e0";
-}
-
-.print:before {
-    content: "\f02f";
 }
 
 a[role="button"]:not([class*="leaflet-control"]), 

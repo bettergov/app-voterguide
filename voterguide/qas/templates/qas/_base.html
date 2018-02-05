@@ -1,9 +1,11 @@
+{% with title="BGA Voter Guide" %}
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
 
-    <title>BGA Voter Guide</title>
+    <title>{{ title }}</title>
 
     <meta name="robots" content="noindex"> <!-- TODO Remove from production -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -29,20 +31,21 @@
     <a class="sr-only" href="#content">Skip To Content</a>
 
     {% block nav %}
-    <!-- <nav role="navigation">
-        <ul class="site-links">
-            <li class="npr"><a href="http://npr.org"><img src="http://media.npr.org/chrome/news/nprlogo_138x46.gif" alt="NPR" /></a></li>
-            <li class="news"><a href="http://www.npr.org/sections/news/">News</a></li>
-            <li class="arts"><a href="http://www.npr.org/sections/arts/">Arts &amp; Life</a></li>
-            <li class="music"><a href="http://www.npr.org/music/">Music</a></li>
-            <li class="listen"><a href="http://www.npr.org/listen/">Listen</a></li>
-        </ul>
-        <ul class="site-links-2">
-            <li class="stations"><a href="http://www.npr.org/templates/stations/stations/">Stations</a></li>
-            <li class="donate"><a href="http://www.npr.org/stations/donate/index.php">Donate</a></li>
-            <li class="shop"><a href="http://shop.npr.org">Shop</a></li>
-        </ul>
-    </nav> -->
+    <header role="banner" class="story-nav">
+        <h1><a href="https://www.bettergov.org" target="_blank">Better Government Association</a></h1>
+        <a href="index.html"><h2><span class='series-hed'>Voter Guide</span></h2></a>
+        <nav class="actions">
+            <a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u={{ request.get_full_path }}&amp;t={{ title }}"
+            onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
+            target="_blank" title="Share on Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a class="twitter" href="https://twitter.com/share?url={{ request.get_full_path }}&amp;via=bettergov&amp;text={{ title }}"
+            onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
+            target="_blank" title="Share on Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="mailto:?subject={{ title }}&amp;body={{ request.get_full_path }}" class="email" title="Share by Email"><i class="fas fa-envelope"></i></a>
+            <a href="#" onclick="window.print(); return false;" class="print" title="Print Article"><i class="fas fa-print"></i></a>
+            <a href="#" role="button" target="_blank">Donate</a>
+        </nav>
+    </header>
     {% endblock nav %}
 
     {% block header_content %}
@@ -80,3 +83,5 @@
     {% endblock extra_foot %}
 </body>
 </html>
+
+{% endwith %}

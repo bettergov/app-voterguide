@@ -135,18 +135,20 @@ article > footer {
   display: block; }
 
 .story-nav {
-  background: #555;
+  background: #c6c6c6;
   height: 40px;
   position: absolute;
   top: 0;
   width: 100%;
-  z-index: 999; }
+  z-index: 99; }
   .story-nav > * {
     display: inline-block;
     height: inherit;
     margin: 0;
     padding: 0;
     vertical-align: top; }
+  .story-nav a {
+    text-decoration: none; }
   .story-nav a:focus {
     background-color: transparent; }
   .story-nav h1 {
@@ -245,18 +247,6 @@ article > footer {
 @media screen and (min-width: 30em) {
   .story-nav > nav.actions {
     display: inline-block; } }
-.facebook::before {
-  content: "\f09a"; }
-
-.twitter::before {
-  content: "\f099"; }
-
-.email:before {
-  content: "\f0e0"; }
-
-.print:before {
-  content: "\f02f"; }
-
 a[role="button"]:not([class*="leaflet-control"]),
 .shootings-filters button {
   background-color: #b19c56 !important;
