@@ -60,8 +60,7 @@
 
                 <div class="response__text">
                     <span class="response__name">{{ candidate.name|lastName }}</span>
-                    {# expr candidate.response_set.get(response.question=question).response_text as response_text #}
-                    {{ candidate|responseFromQuestion:question|default:"No response"|safe }}
+                    {{ candidate|responseFromQuestion:question|default:"<p>No response</p>"|safe }}
                 </div>
             </div>
             {% endfor %}

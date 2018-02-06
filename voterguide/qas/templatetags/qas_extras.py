@@ -11,6 +11,6 @@ def lastName(name):
 @register.filter
 def responseFromQuestion(candidate,question):
     try:
-        return candidate.response_set.values_list('response_text').get(question_id=6)[0]
+        return candidate.response_set.values_list('response_text').get(question_id=question.id)[0]
     except:
         return None
