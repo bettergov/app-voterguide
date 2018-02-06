@@ -24,6 +24,17 @@ let appInit = function() {
             window.location.reload();
         }, false);
     }
+
+
+    for (let r of document.getElementsByClassName('response__text')) {
+        if (r.clientHeight > 150) r.className += " collapsed";
+    }
+
+    for (let e of document.getElementsByClassName('response-expand')) {
+        e.addEventListener('click', function() {
+            e.parentNode.children[1].classList.remove("collapsed");
+        }, false);
+    }
 }
 
 document.addEventListener("DOMContentLoaded", function(event) { 

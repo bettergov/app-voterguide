@@ -13,11 +13,9 @@
     <li class="candidate-bio candidate-filter" data-candidate-key={{candidate.pk}}>
     {% endif %}
         {% if candidate.image %}
-        <img class="candidate-filter__image" src="{{ candidate.image.url }}">
+        <img class="candidate-img" src="{{ candidate.image.url }}">
         {% else %}
-        <div class="candidate-filter__image">
-        <i class="fas fa-user"></i>
-        </div>
+        <div class="candidate-img"><i class="fas fa-user"></i></div>
         {% endif %}
         <h3 class="candidate-bio__name">{{ candidate.name }}</h3>
     </li>
@@ -32,7 +30,9 @@
     <li class="candidate-bio" id="candidate-{{candidate.pk}}">
         {% autoescape off %}
         {% if candidate.image %}
-        <img class="candidate-bio__image" src="{{ candidate.image.url }}">
+        <img class="candidate-img" src="{{ candidate.image.url }}">
+        {% else %}
+        <div class="candidate-img"><i class="fas fa-user"></i></div>
         {% endif %}
         <div class="candidate-bio__meta">
             <h3 class="candidate-bio__name">{{ candidate.name }}</h3>
@@ -56,7 +56,7 @@
                 <div class="response">
                     <div class="response__mug">
                         {% if candidate.image %}
-                        <img class="response__mug__img" src="{{ candidate.image.url }}">
+                        <img class="response__mug__img candidate-img" src="{{ candidate.image.url }}">
                         {% endif %}
                     </div>
 
@@ -64,6 +64,7 @@
                         <span class="response__name">{{ candidate.name|lastName }}</span>
                         {{ candidate.experience|default:"<p>No response</p>"|safe }}
                     </div>
+                    <button class="response-expand">Read full response <i class="fas fa-chevron-down"></i></button>
                 </div>
             {% endfor %}
         </li>
@@ -74,14 +75,16 @@
             <div class="response">
                 <div class="response__mug">
                     {% if candidate.image %}
-                    <img class="response__mug__img" src="{{ candidate.image.url }}">
+                    <img class="response__mug__img candidate-img" src="{{ candidate.image.url }}">
                     {% endif %}
                 </div>
 
                 <div class="response__text">
                     <span class="response__name">{{ candidate.name|lastName }}</span>
-                    {{ candidate|responseFromQuestion:question|default:"<p>No response</p>"|safe }}
+                    {{ candidate|responseFromQuestion:question|default:"<p>No response given.</p>"|safe }}
+                    <!-- <label class="read-more-trigger" for="read-more">Read more</label> -->
                 </div>
+                <button class="response-expand">Read full response <i class="fas fa-chevron-down"></i></button>
             </div>
             {% endfor %}
         </li>
