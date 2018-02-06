@@ -1,10 +1,10 @@
 from django.shortcuts import get_object_or_404, get_list_or_404, render
 
-from .models import Race, Candidate
+from .models import Election, Race, Candidate
 
 def index(request):
     all_races = Race.objects.order_by('title')
-    context = { 'all_races': all_races }
+    context = { 'all_races': all_races, 'title': "2018 Primary" }
     return render(request, 'qas/election.html', context)
 
 def race(request, race_slug):
@@ -14,7 +14,9 @@ def race(request, race_slug):
         candidates = get_list_or_404(Candidate,pk__in=candidate_ids,race=race)
     except:
         candidates = None
-    return render(request, 'qas/race.html', { 'race': race, 'candidates': candidates })
+    title = race.title
+    context = { 'race': race, 'candidates': candidates, 'title': title }
+    return render(request, 'qas/race.html', context)
 
 def raceFromId(request, race_id):
     race = get_object_or_404(Race, pk=race_id)
@@ -23,4 +25,11 @@ def raceFromId(request, race_id):
         candidates = get_list_or_404(Candidate,pk__in=candidate_ids,race=race)
     except:
         candidates = race.candidate_set.all()
-    return render(request, 'qas/race.html', { 'race': race, 'candidates': candidates })
+    title = race.title
+    context = { 'race': race, 'candidates': candidates, 'title': title }
+    return render(request, 'qas/race.html', context)
+
+def faq(request):
+    election = get_object_or_404(Election, pk=1)
+    context = {'election': election,'title': "FAQ"}
+    return render(request, 'qas/faq.html', context)

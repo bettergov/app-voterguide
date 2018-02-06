@@ -3,29 +3,28 @@
 {% load qas_extras %}
 
 {% block content %}
-<main id="content">
-    <h1>{{ race.title }}</h1>
-    <h2>Filters:</h2>
-    <ul class="candidates">
-        {% for candidate in race.candidate_set.all|dictsort:"name" %}
-        {% if candidate in candidates %}
-        <li class="candidate-bio candidate-filter candidate-bio--selected" data-candidate-key={{candidate.pk}}>
+<h1>{{ race.title }}</h1>
+<h2>Filters:</h2>
+<ul class="filters">
+    {% for candidate in race.candidate_set.all|dictsort:"name" %}
+    {% if candidate in candidates %}
+    <li class="candidate-filter candidate-filter--selected" data-candidate-key={{candidate.pk}}>
+    {% else %}
+    <li class="candidate-bio candidate-filter" data-candidate-key={{candidate.pk}}>
+    {% endif %}
+        {% if candidate.image %}
+        <img class="candidate-filter__image" src="{{ candidate.image.url }}">
         {% else %}
-        <li class="candidate-bio candidate-filter" data-candidate-key={{candidate.pk}}>
+        <div class="candidate-filter__image">
+        <i class="fas fa-user"></i>
+        </div>
         {% endif %}
-            {% if candidate.image %}
-            <img class="candidate-bio__image" src="{{ candidate.image.url }}">
-            {% else %}
-            <div class="candidate-bio__image">
-            <i class="fas fa-user"></i>
-            </div>
-            {% endif %}
-            <h3 class="candidate-bio__name">{{ candidate.name }}</h3>
-        </li>
-        {% endfor %}
-    </ul>
+        <h3 class="candidate-bio__name">{{ candidate.name }}</h3>
+    </li>
+    {% endfor %}
+</ul>
 
-
+{% if candidates %}
     <h2>Candidates:</h2>
 
     <ul class="candidates">
@@ -63,7 +62,7 @@
 
                     <div class="response__text">
                         <span class="response__name">{{ candidate.name|lastName }}</span>
-                        {{ candidate.experience|default:"No response"|safe }}
+                        {{ candidate.experience|default:"<p>No response</p>"|safe }}
                     </div>
                 </div>
             {% endfor %}
@@ -88,5 +87,5 @@
         </li>
         {% endfor %}
     </ol>
-</main>
+{% endif %}
 {% endblock content %}

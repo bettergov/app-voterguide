@@ -10,6 +10,7 @@ class Election(models.Model):
     title = models.CharField(max_length=255)
     slug = models.SlugField(unique=True, help_text="Automatically generated slug. Don't recommend changing!")
     date = models.DateField('election date')
+    faq_text = RichTextField("FAQ text goes here", blank=True)
 
     def __str__(self):
         return self.title

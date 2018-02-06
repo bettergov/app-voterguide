@@ -2,6 +2,12 @@ from django.urls import path
 
 from . import views
 
+app_name = 'faq'
+urlpatterns = [
+    # ex: /faq/
+    path('', views.faq, name='faq')
+]
+
 app_name = 'races'
 urlpatterns = [
     # ex: /races/

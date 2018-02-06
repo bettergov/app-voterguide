@@ -1,11 +1,9 @@
-{% with title="BGA Voter Guide" %}
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
 
-    <title>{{ title }}</title>
+    <title>{{ title }} | BGA Illinois Voters Guide</title>
 
     <meta name="robots" content="noindex"> <!-- TODO Remove from production -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -52,8 +50,12 @@
     {% block header_content %}
     {% endblock header_content %}
 
-    {% block content %}
-    {% endblock content %}
+    <main class="page">
+        <div class="main-content" id="content">
+        {% block content %}
+        {% endblock content %}
+        </div>
+    </main>
 
     {% block footer %}
     <footer role="contentinfo">
@@ -72,5 +74,3 @@
     {% endblock extra_foot %}
 </body>
 </html>
-
-{% endwith %}
