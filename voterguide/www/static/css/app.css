@@ -526,9 +526,10 @@ p {
 
 .candidate-bio__image {
   border-radius: 50%;
-  max-width: 100%;
   margin-right: 1em;
-  flex: 1 0 80px;
+  height: 80px;
+  object-fit: cover;
+  flex: 0 0 80px;
   align-self: flex-start; }
 
 .candidate-bio__links {
@@ -560,11 +561,14 @@ p {
 
 .response__mug {
   width: 100px;
-  padding-right: 25px; }
+  padding-right: 20px; }
 
 .response__mug__img {
   border-radius: 50%;
-  max-width: 100%; }
+  max-width: 100%;
+  width: 80px;
+  height: 80px;
+  object-fit: cover; }
 
 #content {
   width: 70em; }
