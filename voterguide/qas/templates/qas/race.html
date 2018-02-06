@@ -1,12 +1,14 @@
 {% extends 'qas/_base.html' %}
 
+{% load qas_extras %}
+
 {% block content %}
 <main id="content">
     <h1>{{ race.title }}</h1>
     <h2>Candidates:</h2>
 
     <ul class="candidates">
-    {% for candidate in race.candidate_set.all %}
+    {% for candidate in race.candidate_set.all|dictsort:"name" %}
     <li class="candidate-bio" id="candidate-{{candidate.pk}}">
         {% autoescape off %}
         {% if candidate.image %}
@@ -30,41 +32,36 @@
     <ol class="questions">
         <li class="question">
             <h3 class="question__text">Elected offices held and civic involvement</h3>
-            {% for candidate in race.candidate_set.all %}
-                {% if candidate.experience %}
+            {% for candidate in race.candidate_set.all|dictsort:"name" %}
                 <div class="response">
                     <div class="response__mug">
                         {% if candidate.image %}
                         <img class="response__mug__img" src="{{ candidate.image.url }}">
                         {% endif %}
-                        <div class="response__mug__name">{{ candidate.name }}</div>
                     </div>
 
                     <div class="response__text">
-                    {% autoescape off %}
-                    {{ candidate.experience }}
-                    {% endautoescape %}
+                        <span class="response__name">{{ candidate.name|lastName }}</span>
+                        {{ candidate.experience|default:"No response"|safe }}
                     </div>
                 </div>
-                {% endif %}
             {% endfor %}
         </li>
     {% for question in race.question_set.all %}
         <li class="question" id="question-{{ question.pk }}">
             <h3 class="question__text">{{ question.question_text }}</h3>
-            {% for response in question.response_set.all %}
+            {% for candidate in race.candidate_set.all|dictsort:"name" %}
             <div class="response">
                 <div class="response__mug">
-                    {% if response.candidate.image %}
-                    <img class="response__mug__img" src="{{ response.candidate.image.url }}">
+                    {% if candidate.image %}
+                    <img class="response__mug__img" src="{{ candidate.image.url }}">
                     {% endif %}
-                    <div class="response__mug__name">{{ response.candidate.name }}</div>
                 </div>
 
                 <div class="response__text">
-                {% autoescape off %}
-                    {{ response.response_text }}
-                {% endautoescape %}
+                    <span class="response__name">{{ candidate.name|lastName }}</span>
+                    {# expr candidate.response_set.get(response.question=question).response_text as response_text #}
+                    {{ candidate|responseFromQuestion:question|default:"No response"|safe }}
                 </div>
             </div>
             {% endfor %}
