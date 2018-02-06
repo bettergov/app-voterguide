@@ -143,7 +143,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
-# STATIC_ROOT = os.path.join(PROJECT_DIR, "..", "www", 'static')
+STATIC_ROOT = os.path.join(PROJECT_DIR, "..", "www", 'static')
 STATIC_URL = '/static/'
 
 MEDIA_ROOT = os.path.join(PROJECT_DIR, "..", "www", 'media')
@@ -183,7 +183,7 @@ AWS_S3_CUSTOM_DOMAIN = 's3.amazonaws.com/%s' % AWS_STORAGE_BUCKET_NAME
 # Tell the staticfiles app to use S3Boto3 storage when writing the collected
 # static files (when you run `collectstatic`).
 STATICFILES_LOCATION = os.path.join(PROJECT_NAME, 'static')
-if 'RDS_DB_NAME' in os.environ:
+# if 'RDS_DB_NAME' in os.environ:
     STATICFILES_STORAGE = 'custom_storages.StaticStorage'
 
 MEDIAFILES_LOCATION = os.path.join(PROJECT_NAME, 'media')

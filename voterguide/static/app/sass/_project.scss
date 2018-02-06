@@ -71,12 +71,16 @@ p { font: 1em/1.2 $font-family-sans-serif; }
     margin-bottom: 1em;
 }
 
+.response__text {
+    flex: 1 0 calc(100% - 100px);
+}
+
 .response__text > p:last-child {
     margin-bottom: 0;
 }
 
 .response__mug {
-    width: 100px;
+    width: 80px;
     padding-right: 20px;
 }
 
@@ -93,6 +97,51 @@ p { font: 1em/1.2 $font-family-sans-serif; }
     margin-right: .5em;
     text-transform: uppercase;
     font: bold 1em/1.2 $font-family-sans-serif;
+}
+
+.candidate-filter {
+    cursor: pointer;
+    position: relative;
+    background: transparent;
+
+    .candidate-bio__image { 
+        height: 50px; 
+        flex-basis: 50px;
+        margin-left: 25px;
+        background-color: $gray-lighter;
+        display: flex;
+        overflow: hidden;
+
+        svg { 
+            display: block; 
+            margin: auto;
+            height: 100%;
+            width: 100%;
+            color: $gray;
+        }
+    }
+
+    h3 { align-self: center; margin: 0; }
+}
+
+.candidate-filter::before {
+    content: "";
+    height: 14px;
+    width: 14px;
+    border: solid 1px $gray;
+    border-radius: 50%;
+    position: absolute;
+    top: calc(50% - 7px);
+}
+
+.candidate-filter:hover,
+.candidate-filter:focus,
+.candidate-bio--selected {
+    background: #F8F5F0;
+
+    &::before{
+        background: $gray;
+    }
 }
 
 
