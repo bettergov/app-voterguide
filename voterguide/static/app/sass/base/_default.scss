@@ -2,6 +2,7 @@
 // -------------------------
 html {
     font: 15px/1.15 $font-family-sans-serif;
+    color: #1a1a1a;
 
     @include breakpoint-min( sm ) { font-size: 18px; }
 }
@@ -11,6 +12,11 @@ p {
     margin: .8em 0 .8em 0;
     &:first-child, &:first-of-type { margin-top: 0; }
     &:last-child { margin-bottom: 0; }
+}
+
+a { 
+    color: initial; 
+    text-decoration: none; 
 }
 
 a:focus,

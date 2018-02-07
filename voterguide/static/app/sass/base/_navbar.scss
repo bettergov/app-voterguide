@@ -65,7 +65,6 @@
         margin-top: 11px;
         margin-left: .5em;
         height: auto;
-        display: none;
     }
 
     nav {
@@ -118,7 +117,7 @@
 
     &.menu-active {
         .toggle:before { content: "\f078"; }
-        .story-hed { display: none; }
+        // .story-hed { display: none; }
         .chapter-menu { display: block; }
     }
 

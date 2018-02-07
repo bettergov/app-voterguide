@@ -2,7 +2,8 @@
 
 {% block content %}
 {% if all_races %}
-    <h1 class="title">2018 primary — all races</h1>
+    <h1 class="title">Browse candidate responses - 2018 Illinois Primary Election</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed arcu purus, pulvinar a mi ut, euismod porttitor lorem. Quisque vestibulum enim nisl, et dictum leo porttitor ac.</p>
     <ul>
     {% for race in all_races %}
         <li><a href="{% url 'races:race' race.slug %}">{{ race.title }}</a></li>

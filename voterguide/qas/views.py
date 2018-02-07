@@ -1,6 +1,7 @@
 from django.shortcuts import get_object_or_404, get_list_or_404, render
-
 from .models import Election, Race, Candidate
+
+from webcolors import hex_to_rgb
 
 def index(request):
     all_races = Race.objects.order_by('title')
@@ -15,7 +16,9 @@ def race(request, race_slug):
     except:
         candidates = None
     title = race.title
-    context = { 'race': race, 'candidates': candidates, 'title': title }
+    colors = ["#b3e2cd","#fdcdac","#cbd5e8","#f4cae4","#e6f5c9","#fff2ae","#f1e2cc","#cccccc"]
+    colors = ["rgba" + str(hex_to_rgb(c) + (0.3,)) for c in colors]
+    context = { 'race': race, 'candidates': candidates, 'title': title, 'colors': colors }
     return render(request, 'qas/race.html', context)
 
 def raceFromId(request, race_id):
@@ -26,7 +29,9 @@ def raceFromId(request, race_id):
     except:
         candidates = race.candidate_set.all()
     title = race.title
-    context = { 'race': race, 'candidates': candidates, 'title': title }
+    colors = ["#b3e2cd","#fdcdac","#cbd5e8","#f4cae4","#e6f5c9","#fff2ae","#f1e2cc","#cccccc"]
+    colors = [hex_to_rgb(c) + (0.3,) for c in colors]
+    context = { 'race': race, 'candidates': candidates, 'title': title, 'colors': colors }
     return render(request, 'qas/race.html', context)
 
 def faq(request):

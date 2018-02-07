@@ -2,9 +2,21 @@
 
 {% load qas_extras %}
 
+{% block extra_head %}
+<style>
+{% for candidate in race.candidate_set.all|dictsort:"name" %}
+[data-candidate-key="{{ candidate.pk }}"] {
+    background-color: {{ colors|lookup:forloop.counter0 }};
+}
+{% endfor %}
+</style>
+{% endblock extra_head %}
+
 {% block content %}
-<h1>{{ race.title }}</h1>
-<h2>Filters:</h2>
+<div class="kicker"><a href="/races">2018 Illinois Primary Election</a></div>
+<h1 style="margin-top: 0;">{{ race.title }}</h1>
+<h2 style="margin-bottom: .2em;">Choose the candidates</h2>
+<p>Select any number of candidates to compare their answers to the BGA questionnaire.</p>
 <ul class="filters">
     {% for candidate in race.candidate_set.all|dictsort:"name" %}
     {% if candidate in candidates %}
@@ -27,7 +39,7 @@
 
     <ul class="candidates">
     {% for candidate in candidates|dictsort:"name" %}
-    <li class="candidate-bio" id="candidate-{{candidate.pk}}">
+    <li class="candidate-bio" data-candidate-key="{{candidate.pk}}">
         {% autoescape off %}
         {% if candidate.image %}
         <img class="candidate-img" src="{{ candidate.image.url }}">
@@ -53,7 +65,7 @@
         <li class="question">
             <h3 class="question__text">Elected offices held and civic involvement</h3>
             {% for candidate in candidates|dictsort:"name" %}
-                <div class="response">
+                <div class="response" data-candidate-key="{{candidate.pk}}">
                     <div class="response__mug">
                         {% if candidate.image %}
                         <img class="response__mug__img candidate-img" src="{{ candidate.image.url }}">
@@ -72,7 +84,7 @@
         <li class="question" id="question-{{ question.pk }}">
             <h3 class="question__text">{{ question.question_text }}</h3>
             {% for candidate in candidates|dictsort:"name" %}
-            <div class="response">
+            <div class="response" data-candidate-key="{{candidate.pk}}">
                 <div class="response__mug">
                     {% if candidate.image %}
                     <img class="response__mug__img candidate-img" src="{{ candidate.image.url }}">

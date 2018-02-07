@@ -1,6 +1,7 @@
 @charset "UTF-8";
 html {
-  font: 15px/1.15 acumin-pro, Helvetica, Arial, sans-serif; }
+  font: 15px/1.15 acumin-pro, Helvetica, Arial, sans-serif;
+  color: #1a1a1a; }
   @media screen and (min-width: 30em) {
     html {
       font-size: 18px; } }
@@ -12,6 +13,10 @@ p {
     margin-top: 0; }
   p:last-child {
     margin-bottom: 0; }
+
+a {
+  color: initial;
+  text-decoration: none; }
 
 a:focus,
 a:hover {
@@ -26,7 +31,7 @@ ul, ol {
     font-size: .95em; }
 
 .page {
-  max-width: 70em; }
+  max-width: 60em; }
   @media screen and (min-width: 0) {
     .page {
       margin: 0 2.8169014085%; } }
@@ -42,7 +47,7 @@ ul, ol {
   @media screen and (min-width: 60em) {
     .page {
       margin: 0 3.9215686275%; } }
-  @media screen and (min-width: 75.9574468085em) {
+  @media screen and (min-width: 65.1063829787em) {
     .page {
       margin: 0 auto; } }
 
@@ -214,8 +219,7 @@ article > footer {
     font-size: .9em;
     margin-top: 11px;
     margin-left: .5em;
-    height: auto;
-    display: none; }
+    height: auto; }
   .story-nav nav.stories {
     position: absolute;
     right: 1em; }
@@ -252,8 +256,6 @@ article > footer {
     background-color: transparent; }
   .story-nav.menu-active .toggle:before {
     content: "\f078"; }
-  .story-nav.menu-active .story-hed {
-    display: none; }
   .story-nav.menu-active .chapter-menu {
     display: block; }
   .story-nav.pinned:not(.no-stick) {
@@ -536,6 +538,9 @@ iframe {
 p {
   font: 1em/1.2 acumin-pro, Helvetica, Arial, sans-serif; }
 
+.page {
+  padding: 1em 0; }
+
 .candidates {
   list-style: none;
   padding-left: 0;
@@ -669,6 +674,9 @@ p {
     align-self: center;
     margin: 0; }
 
+.candidate-filter:not(.candidate-filter--selected) {
+  background: transparent !important; }
+
 .candidate-filter::before {
   content: "";
   height: 10px;
@@ -698,18 +706,21 @@ p {
   left: 0;
   width: 100%;
   border: none;
-  background: #fff;
+  background: white;
   padding-top: 5px;
   cursor: pointer;
   font-weight: bold;
-  border-top: solid 2px #b19c56; }
+  border-top: solid 2px #b19c56;
+  color: #555; }
+  .response-expand:hover {
+    text-decoration: underline; }
 
 .response-expand::before {
   content: "";
   width: 100%;
   height: 30px;
   position: absolute;
-  background: linear-gradient(to top, #fff, rgba(255, 255, 255, 0));
+  background: linear-gradient(to top, white, rgba(255, 255, 255, 0));
   top: -25px;
   left: 0; }
 

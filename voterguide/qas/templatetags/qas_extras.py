@@ -14,3 +14,7 @@ def responseFromQuestion(candidate,question):
         return candidate.response_set.values_list('response_text').get(question_id=question.id)[0]
     except:
         return None
+
+@register.filter
+def lookup(d, key):
+    return d[key]
