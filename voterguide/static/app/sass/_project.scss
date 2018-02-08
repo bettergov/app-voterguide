@@ -295,8 +295,9 @@ p > a { border-bottom: 2px solid $gray-lighter; }
 }
 
 .app__rail__item--secondary {
-    font-size: .9rem;
+    font-size: .8rem;
     font-weight: normal;
+    margin-bottom: .5em;
 
     a:hover, a:focus {
         border-bottom: none;

@@ -785,8 +785,9 @@ p > a {
   font-weight: bold; }
 
 .app__rail__item--secondary {
-  font-size: .9rem;
-  font-weight: normal; }
+  font-size: .8rem;
+  font-weight: normal;
+  margin-bottom: .5em; }
   .app__rail__item--secondary a:hover, .app__rail__item--secondary a:focus {
     border-bottom: none; }
 
