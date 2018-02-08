@@ -773,9 +773,6 @@ p > a {
 .app__rail__nav {
   background: #28243a;
   padding: .1em 1em; }
-  @media screen and (min-width: 50em) {
-    .app__rail__nav {
-      border-radius: 1.5em; } }
 
 .app__rail__menu {
   padding-left: 0;
@@ -864,8 +861,7 @@ p > a {
   background: white;
   margin: 0;
   vertical-align: top;
-  box-sizing: border-box;
-  border-radius: 1.5em; }
+  box-sizing: border-box; }
   @media screen and (min-width: 0) {
     .page {
       width: 100%; } }

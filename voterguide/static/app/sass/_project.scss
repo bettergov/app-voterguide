@@ -280,10 +280,6 @@ p > a { border-bottom: 2px solid $gray-lighter; }
 .app__rail__nav {
     background: rgb(40, 36, 58);
     padding: .1em 1em;
-
-    @include breakpoint-min( lg ) {
-        border-radius: 1.5em;
-    }
 }
 
 .app__rail__menu {
@@ -374,7 +370,6 @@ p > a { border-bottom: 2px solid $gray-lighter; }
     margin: 0;
     vertical-align: top;
     box-sizing: border-box;
-    border-radius: 1.5em;
 
     @include breakpoint-min( xs ) {
         width: 100%;
