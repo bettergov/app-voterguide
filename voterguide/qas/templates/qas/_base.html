@@ -25,25 +25,38 @@
     {% block extra_head %}
     {% endblock extra_head %}
 </head>
-<body>
+<body class="app">
 
     <a class="sr-only" href="#content">Skip To Content</a>
 
     {% block nav %}
-    <header role="banner" class="story-nav">
-        <h1><a href="https://www.bettergov.org" target="_blank">Better Government Association</a></h1>
-        <a href="/"><h2><span class='series-hed'>Voter Guide</span></h2></a>
-        <nav class="actions">
-            <a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u={{ request.get_full_path }}&amp;t={{ title }}"
-            onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
-            target="_blank" title="Share on Facebook"><i class="fab fa-facebook-f"></i></a>
-            <a class="twitter" href="https://twitter.com/share?url={{ request.get_full_path }}&amp;via=bettergov&amp;text={{ title }}"
-            onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
-            target="_blank" title="Share on Twitter"><i class="fab fa-twitter"></i></a>
-            <a href="mailto:?subject={{ title }}&amp;body={{ request.get_full_path }}" class="email" title="Share by Email"><i class="fas fa-envelope"></i></a>
-            <a href="#" onclick="window.print(); return false;" class="print" title="Print Article"><i class="fas fa-print"></i></a>
-            <a href="#" role="button" target="_blank">Donate</a>
+    <header role="banner" class="app__rail">
+        <a href="/"><img src="https://media.bettergov.org/voter-guide/BGA_Illinois_Voters_Guide_2018.png"></a>
+        <nav class="app__rail__nav">
+            <ul class="app__rail__menu">
+                <li class="app__rail__item--main">
+                    <a href="{% url 'faq' %}">F.A.Q.</a>
+                </li>
+                <li class="app__rail__item--main">
+                    <a href="{% url 'races:index' %}">Races</a>
+                    <ul class="app__rail__menu--secondary">
+                        {% for r in all_races %}
+                        <li class="app__rail__item--secondary">
+                            <a href="{% url 'races:race' r.slug %}">{{ r.title }}</a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </li>
+            </ul>
         </nav>
+        <div class="footer-wrapper">
+            <div class="divider"></div>
+            <ul>
+                <li>&#169; 2018 Better Government Association, Inc.</li>
+                <li><a href="https://www.bettergov.org/terms-conditions">Terms &amp; conditions</a></li>
+                <li><a href="https://www.bettergov.org/privacy-policy">Privacy policy</a></li>
+            </ul>
+        </div>
     </header>
     {% endblock nav %}
 
@@ -58,16 +71,16 @@
     </main>
 
     {% block footer %}
-    <footer role="contentinfo">
+    <!-- <footer role="contentinfo">
         <div class="footer-wrapper">
             <div class="divider"></div>
             <ul>
-                <li>&#169; 2017 Better Government Association, Inc.</li>
+                <li>&#169; 2018 Better Government Association, Inc.</li>
                 <li><a href="https://www.bettergov.org/terms-conditions">Terms &amp; conditions</a></li>
                 <li><a href="https://www.bettergov.org/privacy-policy">Privacy policy</a></li>
             </ul>
         </div>
-    </footer>
+    </footer> -->
     {% endblock footer %}
 
     {% block extra_foot %}

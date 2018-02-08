@@ -1,5 +1,5 @@
 from django import template
-from qas.models import *
+# from qas.models import *
 
 register = template.Library()
 

@@ -3,8 +3,11 @@ from .models import Election, Race, Candidate
 
 from webcolors import hex_to_rgb
 
+colors = ["#b3e2cd","#fdcdac","#cbd5e8","#f4cae4","#e6f5c9","#fff2ae","#f1e2cc","#cccccc"]
+colors = ["rgba" + str(hex_to_rgb(c) + (0.3,)) for c in colors]
+all_races = Race.objects.order_by('title')
+
 def index(request):
-    all_races = Race.objects.order_by('title')
     context = { 'all_races': all_races, 'title': "2018 Primary" }
     return render(request, 'qas/election.html', context)
 
@@ -16,9 +19,7 @@ def race(request, race_slug):
     except:
         candidates = None
     title = race.title
-    colors = ["#b3e2cd","#fdcdac","#cbd5e8","#f4cae4","#e6f5c9","#fff2ae","#f1e2cc","#cccccc"]
-    colors = ["rgba" + str(hex_to_rgb(c) + (0.3,)) for c in colors]
-    context = { 'race': race, 'candidates': candidates, 'title': title, 'colors': colors }
+    context = { 'race': race, 'candidates': candidates, 'title': title, 'colors': colors, 'all_races': all_races }
     return render(request, 'qas/race.html', context)
 
 def raceFromId(request, race_id):
@@ -29,12 +30,10 @@ def raceFromId(request, race_id):
     except:
         candidates = race.candidate_set.all()
     title = race.title
-    colors = ["#b3e2cd","#fdcdac","#cbd5e8","#f4cae4","#e6f5c9","#fff2ae","#f1e2cc","#cccccc"]
-    colors = [hex_to_rgb(c) + (0.3,) for c in colors]
-    context = { 'race': race, 'candidates': candidates, 'title': title, 'colors': colors }
+    context = { 'race': race, 'candidates': candidates, 'title': title, 'colors': colors, 'all_races': all_races }
     return render(request, 'qas/race.html', context)
 
 def faq(request):
     election = get_object_or_404(Election, pk=1)
-    context = {'election': election,'title': "FAQ"}
+    context = {'election': election,'title': "FAQ", 'all_races': all_races}
     return render(request, 'qas/faq.html', context)
