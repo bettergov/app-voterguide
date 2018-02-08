@@ -5,7 +5,8 @@ from webcolors import hex_to_rgb
 
 colors = ["#b3e2cd","#fdcdac","#cbd5e8","#f4cae4","#e6f5c9","#fff2ae","#f1e2cc","#cccccc"]
 colors = ["rgba" + str(hex_to_rgb(c) + (0.3,)) for c in colors]
-all_races = Race.objects.order_by('title')
+election = get_object_or_404(Election, slug='2018-primary')
+all_races = election.race_set.order_by('title')
 
 def index(request):
     context = { 'all_races': all_races, 'title': "2018 Primary" }
