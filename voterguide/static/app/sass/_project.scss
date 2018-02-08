@@ -17,7 +17,7 @@ a {
 
 p > a { border-bottom: 2px solid $gray-lighter; }
 
-.page { padding: 1em 0; }
+.page { padding: 1em; }
 
 .candidates {
     list-style: none;
@@ -280,6 +280,10 @@ p > a { border-bottom: 2px solid $gray-lighter; }
 .app__rail__nav {
     background: rgb(40, 36, 58);
     padding: .1em 1em;
+
+    @include breakpoint-min( lg ) {
+        border-radius: 1.5em;
+    }
 }
 
 .app__rail__menu {
@@ -331,32 +335,37 @@ p > a { border-bottom: 2px solid $gray-lighter; }
 
 .app {
     background: #ededee;
-    padding-top: 2em;
-    padding-bottom: 2em;
+
+    @include breakpoint-min( xs ) {
+        padding-top: 50px;
+    }
+    @include breakpoint-min( lg ) {
+        padding-top: 2em;
+    }
 }
 
 .app__rail {
-    // display: inline-block;
     overflow: hidden;
-    // vertical-align: top;
     box-sizing: border-box;
 
-    position: fixed;
-    width: 200px;
+    @include breakpoint-min( xs ) {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 40px;
+        width: 100%;
 
-    // @include breakpoint-min( sm ) {
-    //     width: colspan(2,6);
-    // }
-    // @include breakpoint-min( md ) {
-    //     width: colspan(2,8);
-    // }
-    // @include breakpoint-min( lg ) {
-    //     width: colspan(3,12);
-    // }
-    // @include breakpoint-min( xl ) {
-    //     width: colspan(2,16);
-    //     padding: colspan(p, 16);
-    // }
+        img { display: none; }
+    }
+
+    @include breakpoint-min( lg ) {
+        top: auto;
+        left: auto;
+        width: 200px;
+        height: auto;
+
+        img { display: block; }
+    }
 }
 
 .page {
@@ -365,17 +374,14 @@ p > a { border-bottom: 2px solid $gray-lighter; }
     margin: 0;
     vertical-align: top;
     box-sizing: border-box;
+    border-radius: 1.5em;
 
-    margin-left: 225px;
-
-    @include breakpoint-min( sm ) {
-        width: colspan(4,6);
-    }
-    @include breakpoint-min( md ) {
-        width: colspan(6,8);
+    @include breakpoint-min( xs ) {
+        width: 100%;
     }
     @include breakpoint-min( lg ) {
         width: colspan(9, 12);
+        margin-left: 225px;
     }
     @include breakpoint-min( xl ) {
         width: colspan(12, 16);
