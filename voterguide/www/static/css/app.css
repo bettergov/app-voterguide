@@ -25,7 +25,8 @@ a:hover {
   background-color: rgba(251, 251, 120, 0.8); }
 
 ul, ol {
-  padding-left: 2em; }
+  padding-left: 2em;
+  clear: both; }
   ul > li, ol > li {
     margin-bottom: .2em;
     font-size: .95em; }
