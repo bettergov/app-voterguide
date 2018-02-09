@@ -22,5 +22,7 @@ urlpatterns = [
     path('2018-primary/races/', include('qas.urls')),
     path('2018-primary/faq/', qas.views.faq, name='faq'),
     path('2018-primary/admin/', admin.site.urls),
+    path('2018-primary/', RedirectView.as_view(url='/2018-primary/races/', permanent=False)),
+    path('2018-primary', RedirectView.as_view(url='/2018-primary/races/', permanent=False)),
     path('', RedirectView.as_view(url='2018-primary/races/', permanent=False))
 ]
