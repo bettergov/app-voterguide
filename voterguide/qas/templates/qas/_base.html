@@ -31,24 +31,26 @@
 
     {% block nav %}
     <header role="banner" class="app__rail">
-        <a href="/"><img src="https://media.bettergov.org/voter-guide/BGA_Illinois_Voters_Guide_2018.png"></a>
-        <nav class="app__rail__nav">
-            <ul class="app__rail__menu">
-                <li class="app__rail__item--main">
-                    <a href="{% url 'faq' %}">F.A.Q.</a>
-                </li>
-                <li class="app__rail__item--main">
-                    <a href="{% url 'races:index' %}">Races</a>
-                    <ul class="app__rail__menu--secondary">
-                        {% for r in all_races %}
-                        <li class="app__rail__item--secondary">
-                            <a href="{% url 'races:race' r.slug %}">{{ r.title }}</a>
-                        </li>
-                        {% endfor %}
-                    </ul>
-                </li>
-            </ul>
-        </nav>
+        <div class="app__rail__inner">
+            <a href="/"><img src="https://media.bettergov.org/voter-guide/BGA_Illinois_Voters_Guide_2018.png"></a>
+            <nav class="app__rail__nav">
+                <ul class="app__rail__menu">
+                    <li class="app__rail__item--main">
+                        <a href="{% url 'faq' %}">F.A.Q.</a>
+                    </li>
+                    <li class="app__rail__item--main">
+                        <a href="{% url 'races:index' %}">Races</a>
+                        <ul class="app__rail__menu--secondary">
+                            {% for r in all_races %}
+                            <li class="app__rail__item--secondary">
+                                <a href="{% url 'races:race' r.slug %}">{{ r.title }}</a>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
     </header>
     {% endblock nav %}
 

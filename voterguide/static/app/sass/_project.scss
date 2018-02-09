@@ -305,7 +305,7 @@ p > a { border-bottom: 2px solid $gray-lighter; }
 }
 
 .app__rail__menu--secondary {
-    padding: .5em 0;
+    padding: .5em 0 0;
 }
 
 .app__rail .footer-wrapper {
@@ -343,6 +343,7 @@ p > a { border-bottom: 2px solid $gray-lighter; }
 
 .app__rail {
     overflow: hidden;
+    overflow-y: scroll;
     box-sizing: border-box;
 
     @include breakpoint-min( xs ) {
@@ -356,12 +357,23 @@ p > a { border-bottom: 2px solid $gray-lighter; }
     }
 
     @include breakpoint-min( lg ) {
-        top: auto;
+        top: 0;
         left: auto;
         width: 200px;
         height: auto;
 
         img { display: block; }
+
+        .app__rail__inner {
+            max-height: 100vh;
+            padding-top: 2em;
+            overflow-y: scroll;
+            width: 110%;
+            padding-right: 10%;
+            box-sizing: border-box;
+        }
+
+        .app__rail__nav { margin-bottom: 2em; }
     }
 }
 

@@ -792,7 +792,7 @@ p > a {
     border-bottom: none; }
 
 .app__rail__menu--secondary {
-  padding: .5em 0; }
+  padding: .5em 0 0; }
 
 .app__rail .footer-wrapper {
   width: 100%;
@@ -838,6 +838,7 @@ p > a {
 
 .app__rail {
   overflow: hidden;
+  overflow-y: scroll;
   box-sizing: border-box; }
   @media screen and (min-width: 0) {
     .app__rail {
@@ -850,12 +851,21 @@ p > a {
         display: none; } }
   @media screen and (min-width: 50em) {
     .app__rail {
-      top: auto;
+      top: 0;
       left: auto;
       width: 200px;
       height: auto; }
       .app__rail img {
-        display: block; } }
+        display: block; }
+      .app__rail .app__rail__inner {
+        max-height: 100vh;
+        padding-top: 2em;
+        overflow-y: scroll;
+        width: 110%;
+        padding-right: 10%;
+        box-sizing: border-box; }
+      .app__rail .app__rail__nav {
+        margin-bottom: 2em; } }
 
 .page {
   display: inline-block;
