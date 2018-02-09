@@ -4,7 +4,7 @@
 
 {% block extra_head %}
 <style>
-{% for candidate in race.candidate_set.all|dictsort:"name" %}
+{% for candidate in race.candidate_set.all|sortLastName %}
 /*[data-candidate-key="{{ candidate.pk }}"] {
     background-color: {{ colors|lookup:forloop.counter0 }};
 }*/
@@ -50,7 +50,7 @@
     <h2 style="margin-bottom: .2em;">Choose the candidates</h2>
     <p>Select any number of candidates to compare their answers to the BGA questionnaire.</p>
     <ul class="filters">
-        {% for candidate in race.candidate_set.all|dictsort:"name" %}
+        {% for candidate in race.candidate_set.all|sortLastName %}
         {% if candidate in candidates %}
         <li class="candidate-filter candidate-filter--selected" data-candidate-key={{candidate.pk}}>
         {% else %}
@@ -71,7 +71,7 @@
     <h2>Candidates:</h2>
 
     <ul class="candidates">
-    {% for candidate in candidates|dictsort:"name" %}
+    {% for candidate in candidates|sortLastName %}
     <li class="candidate-bio" data-candidate-key="{{candidate.pk}}">
         {% autoescape off %}
         {% if candidate.image %}
@@ -97,7 +97,7 @@
     <ol class="questions">
         <li class="question">
             <h3 class="question__text">Elected offices held and civic involvement</h3>
-            {% for candidate in candidates|dictsort:"name" %}
+            {% for candidate in candidates|sortLastName %}
                 <div class="response" data-candidate-key="{{candidate.pk}}">
                     <div class="response__mug">
                         {% if candidate.image %}
@@ -116,7 +116,7 @@
     {% for question in race.question_set.all %}
         <li class="question" id="question-{{ question.pk }}">
             <h3 class="question__text">{{ question.question_text }}</h3>
-            {% for candidate in candidates|dictsort:"name" %}
+            {% for candidate in candidates|sortLastName %}
             <div class="response" data-candidate-key="{{candidate.pk}}">
                 <div class="response__mug">
                     {% if candidate.image %}

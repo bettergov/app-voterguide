@@ -18,3 +18,9 @@ def responseFromQuestion(candidate,question):
 @register.filter
 def lookup(d, key):
     return d[key]
+
+@register.filter
+def sortLastName(d):
+    getKey = lambda x: x.name.split(' ')[-1]
+    sortedList = sorted(d, key=getKey)
+    return sortedList
