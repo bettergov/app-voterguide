@@ -41,7 +41,7 @@
                     <li class="app__rail__item--main">
                         <a href="{% url 'races:index' %}">Races</a>
                         <ul class="app__rail__menu--secondary">
-                            {% for r in all_races %}
+                            {% for r in all_races|dictsort:"weight" %}
                             <li class="app__rail__item--secondary">
                                 <a href="{% url 'races:race' r.slug %}">{{ r.title }}</a>
                             </li>
