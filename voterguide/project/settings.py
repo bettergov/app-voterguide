@@ -26,6 +26,7 @@ SECRET_KEY = '55bg!26p+399rnh$-8++h6l%l+2o1(381^p)2ejgm^pck5zi!='
 DEBUG = True
 
 ALLOWED_HOSTS = [
+    '.bettergov.org',
     '.elasticbeanstalk.com',
     '127.0.0.1',
     'localhost'

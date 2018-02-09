@@ -326,7 +326,9 @@ p > a { border-bottom: 2px solid $gray-lighter; }
 
 // Nav elements
 // -------------------------
-.app__rail { 
+.app__rail {
+
+    z-index: 99;
 
     a:hover, a:focus { border-bottom: none; }
 
