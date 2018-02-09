@@ -11,15 +11,18 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <link rel="shortcut icon" href="https://media.bettergov.org/favicon.ico" />
 
+    <!-- Fonts -->
+    <script src="https://use.typekit.net/mqd7hhp.js"></script>
+    <script>try{Typekit.load({ async: false });}catch(e){}</script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+
     <!-- CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
     {% load static %}
     <link rel="stylesheet" href="{% static "css/app.css" %}">
 
     <!-- JS -->
-    <script src="https://use.typekit.net/mqd7hhp.js"></script>
-    <script>try{Typekit.load({ async: false });}catch(e){}</script>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     <script src="{% static "js/app.js" %}"></script>
 
     {% block extra_head %}
@@ -36,7 +39,7 @@
             <nav class="app__rail__nav">
                 <ul class="app__rail__menu">
                     <li class="app__rail__item--main">
-                        <a href="{% url 'faq' %}">F.A.Q.</a>
+                        <a href="{% url 'faq' %}">Voting FAQ</a>
                     </li>
                     <li class="app__rail__item--main">
                         <a href="{% url 'races:index' %}">Races</a>
@@ -65,7 +68,7 @@
     </main>
 
     {% block footer %}
-    <footer role="contentinfo">
+    <footer class="app__footer">
         <div class="footer-wrapper">
             <div class="divider"></div>
             <ul>

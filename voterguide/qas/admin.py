@@ -12,7 +12,7 @@ class RaceInline(admin.TabularInline):
     extra = 0
     show_change_link = True
     form = AddRace
-    ordering = ('title',)
+    ordering = ('weight','title',)
     exclude = ('slug',)
 
 class ElectionAdmin(admin.ModelAdmin):

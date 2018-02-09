@@ -1,5 +1,7 @@
 // App elements
 // -------------------------
+* { box-sizing: border-box; }
+
 p { font: 1em/1.2 $font-family-sans-serif; }
 
 .p { @extend p }
@@ -33,6 +35,38 @@ p > a { border-bottom: 2px solid $gray-lighter; }
     }
 
     > p { font-style: italic; }
+}
+
+.button {
+    background:  #FFF5F5;
+    // color: black;
+    border: none;
+    padding: 0 0 0 .5em;
+    font-weight: bold;
+    border-bottom: solid 2px #FFA8A8;
+    display: table;
+    border-radius: 3px;
+
+    &::after {
+        content: "\f054";
+        font-family: "Font Awesome 5 Free";
+        margin-left: .2em;
+        padding: 0 .3em;
+        font-size: 1.2em;
+        background: #FFA8A8;
+        display: table-cell;
+        vertical-align: middle;
+        border-left: solid .2em #FFF5F5;
+        border-radius: 0 3px 0 0;
+    }
+
+    &:hover, &:focus {
+        color: inherit;
+        background:  #FFA8A8;
+        border-bottom: 2px solid #FFA8A8;
+
+        &::after { border-color: #FFA8A8; }
+    }
 }
 
 .page { padding: 1em; }
@@ -138,7 +172,7 @@ p > a { border-bottom: 2px solid $gray-lighter; }
 
 .response__mug {
     width: 80px;
-    padding-right: 20px;
+    margin-right: 20px;
 }
 
 .response__name {
@@ -278,14 +312,14 @@ p > a { border-bottom: 2px solid $gray-lighter; }
 
     a { 
         color: white;
-        transition: none; 
-        border-bottom: none;
+        transition: none;
+        display: block;
     }
 
     a:hover, a:focus, a.active {
         color: #EF484E;
         background: transparent;
-        border-bottom: solid 3px #EF484E;
+        border-bottom: none;
     }
 
     img {
@@ -306,10 +340,16 @@ p > a { border-bottom: 2px solid $gray-lighter; }
 }
 
 .app__rail__item--main {
-    font-size: 2rem;
+
+    font-size: 1.3rem;
     line-height: 1.1;
-    margin-bottom: .5em;
+    margin-bottom: .4em;
     font-weight: bold;
+
+    border-bottom: solid 1px white;
+    padding-bottom: .5em;
+
+    &:last-of-type { border-bottom: none; }
 }
 
 .app__rail__item--secondary {
@@ -395,7 +435,7 @@ p > a { border-bottom: 2px solid $gray-lighter; }
     }
 }
 
-.page {
+.page, .app__footer {
     display: inline-block;
     background: white;
     margin: 0;
@@ -413,6 +453,12 @@ p > a { border-bottom: 2px solid $gray-lighter; }
         width: colspan(12, 16);
         padding: colspan(p, 16);
     }
+}
+
+.app__footer {
+    text-align: center;
+    padding-bottom: 1em;
+    margin-bottom: 2em;
 }
 
 

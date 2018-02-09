@@ -166,7 +166,7 @@ CKEDITOR_CONFIGS = {
             ['Format', 'RemoveFormat', 'Source']
         ],
         'height': 150,
-        'extraAllowedContent': 'div(*)',
+        'extraAllowedContent': 'div(*),a(href,class)',
     }
 }
 
