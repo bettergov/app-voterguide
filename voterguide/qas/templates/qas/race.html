@@ -12,6 +12,37 @@
 </style>
 {% endblock extra_head %}
 
+
+{% block nav %}
+<header role="banner" class="app__rail">
+    <div class="app__rail__inner">
+        <a href="/" class="hidden-sm"><img src="https://media.bettergov.org/voter-guide/BGA_Illinois_Voters_Guide_2018.png"></a>
+        <nav class="app__rail__nav">
+            <ul class="app__rail__menu">
+                <h1 class="hidden-lg"><a href="https://bettergov.org/">Better Government Association</a></h1>
+                <li class="app__rail__item--main">
+                    <a href="{% url 'faq' %}">Voting FAQ</a>
+                </li>
+                <li class="app__rail__item--main">
+                    <a href="{% url 'races:index' %}">Races</a>
+                    <ul class="app__rail__menu--secondary">
+                        {% for r in all_races|dictsort:"weight" %}
+                        <li class="app__rail__item--secondary">
+                            {% if r.slug in request.path %}
+                            <a href="{% url 'races:race' r.slug %}" class="active">{{ r.title }}</a>
+                            {% else %}
+                            <a href="{% url 'races:race' r.slug %}">{{ r.title }}</a>
+                            {% endif %}
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+{% endblock nav %}
+
 {% block content %}
 <div class="kicker">2018 Illinois Primary Election • <a href="/races">Browse races</a></div>
 <h1 style="margin-top: 0;">{{ race.title }}</h1>
