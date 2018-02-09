@@ -165,7 +165,8 @@ CKEDITOR_CONFIGS = {
             ['Link', 'Unlink'],
             ['Format', 'RemoveFormat', 'Source']
         ],
-        'height': 150
+        'height': 150,
+        'extraAllowedContent': 'div(*)',
     }
 }
 

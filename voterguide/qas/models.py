@@ -19,6 +19,7 @@ class Race(models.Model):
     title = models.CharField(max_length=255)
     slug = models.SlugField(help_text="Automatically generated slug. Don't recommend changing!")
     election = models.ForeignKey(Election, on_delete=models.CASCADE)
+    weight = models.IntegerField(default=0)
 
     def __str__(self):
         return  "%s: %s" % (self.election, self.title)

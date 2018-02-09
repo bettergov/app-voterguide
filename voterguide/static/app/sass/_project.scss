@@ -2,6 +2,8 @@
 // -------------------------
 p { font: 1em/1.2 $font-family-sans-serif; }
 
+.p { @extend p }
+
 h1 { margin-top: 0; }
 
 a { 
@@ -16,6 +18,22 @@ a {
 }
 
 p > a { border-bottom: 2px solid $gray-lighter; }
+
+.alert {
+    display: flex;
+
+    &::before {
+        content: "!";
+        color: #EF484E;
+        font-size: 2em;
+        margin-right: .4em;
+        font-weight: bold;
+        font-style: normal;
+        float: left;
+    }
+
+    > p { font-style: italic; }
+}
 
 .page { padding: 1em; }
 
