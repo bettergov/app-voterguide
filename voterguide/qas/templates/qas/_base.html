@@ -35,9 +35,10 @@
     {% block nav %}
     <header role="banner" class="app__rail">
         <div class="app__rail__inner">
-            <a href="/"><img src="https://media.bettergov.org/voter-guide/BGA_Illinois_Voters_Guide_2018.png"></a>
+            <a href="/" class="hidden-sm"><img src="https://media.bettergov.org/voter-guide/BGA_Illinois_Voters_Guide_2018.png"></a>
             <nav class="app__rail__nav">
                 <ul class="app__rail__menu">
+                    <h1 class="hidden-lg"><a href="https://bettergov.org/">Better Government Association</a></h1>
                     <li class="app__rail__item--main">
                         <a href="{% url 'faq' %}">Voting FAQ</a>
                     </li>
@@ -72,7 +73,7 @@
         <div class="footer-wrapper">
             <div class="divider"></div>
             <ul>
-                <li>&#169; 2018 Better Government Association, Inc.</li>
+                <li>&#169; 2018 <a href="https://www.bettergov.org/">Better Government Association, Inc.</a></li>
                 <li><a href="https://www.bettergov.org/terms-conditions">Terms &amp; conditions</a></li>
                 <li><a href="https://www.bettergov.org/privacy-policy">Privacy policy</a></li>
             </ul>

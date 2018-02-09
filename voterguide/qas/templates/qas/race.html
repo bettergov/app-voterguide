@@ -5,34 +5,36 @@
 {% block extra_head %}
 <style>
 {% for candidate in race.candidate_set.all|dictsort:"name" %}
-[data-candidate-key="{{ candidate.pk }}"] {
+/*[data-candidate-key="{{ candidate.pk }}"] {
     background-color: {{ colors|lookup:forloop.counter0 }};
-}
+}*/
 {% endfor %}
 </style>
 {% endblock extra_head %}
 
 {% block content %}
-<div class="kicker"><a href="/races">2018 Illinois Primary Election</a></div>
+<div class="kicker">2018 Illinois Primary Election • <a href="/races">Browse races</a></div>
 <h1 style="margin-top: 0;">{{ race.title }}</h1>
-<h2 style="margin-bottom: .2em;">Choose the candidates</h2>
-<p>Select any number of candidates to compare their answers to the BGA questionnaire.</p>
-<ul class="filters">
-    {% for candidate in race.candidate_set.all|dictsort:"name" %}
-    {% if candidate in candidates %}
-    <li class="candidate-filter candidate-filter--selected" data-candidate-key={{candidate.pk}}>
-    {% else %}
-    <li class="candidate-bio candidate-filter" data-candidate-key={{candidate.pk}}>
-    {% endif %}
-        {% if candidate.image %}
-        <img class="candidate-img" src="{{ candidate.image.url }}">
+<section class="filters__wrapper">
+    <h2 style="margin-bottom: .2em;">Choose the candidates</h2>
+    <p>Select any number of candidates to compare their answers to the BGA questionnaire.</p>
+    <ul class="filters">
+        {% for candidate in race.candidate_set.all|dictsort:"name" %}
+        {% if candidate in candidates %}
+        <li class="candidate-filter candidate-filter--selected" data-candidate-key={{candidate.pk}}>
         {% else %}
-        <div class="candidate-img"><i class="fas fa-user"></i></div>
+        <li class="candidate-bio candidate-filter" data-candidate-key={{candidate.pk}}>
         {% endif %}
-        <h3 class="candidate-bio__name">{{ candidate.name }}</h3>
-    </li>
-    {% endfor %}
-</ul>
+            {% if candidate.image %}
+            <img class="candidate-img" src="{{ candidate.image.url }}">
+            {% else %}
+            <div class="candidate-img"><i class="fas fa-user"></i></div>
+            {% endif %}
+            <h3 class="candidate-bio__name">{{ candidate.name }}</h3>
+        </li>
+        {% endfor %}
+    </ul>
+</section>
 
 {% if candidates %}
     <h2>Candidates:</h2>

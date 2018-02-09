@@ -2,7 +2,8 @@
 
 {% block content %}
 {% if all_races %}
-    <h1 class="title">Browse candidate responses - 2018 Illinois Primary Election</h1>
+    <div class="kicker">2018 Illinois Primary Election</div>
+    <h1 class="title">Browse candidate responses</h1>
     <p>The BGA asked candidates for contested state and Cook County-wide offices running in the 2018 primary how they would improve and expand government accountability, efficiency and transparency for the residents they would serve.</p>
     <ul>
     {% for race in all_races|dictsort:"weight" %}

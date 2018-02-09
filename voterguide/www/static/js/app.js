@@ -27,12 +27,12 @@ let appInit = function() {
 
 
     for (let r of document.getElementsByClassName('response__text')) {
-        if (r.clientHeight > 150) r.className += " collapsed";
+        if (r.clientHeight > 150) r.parentNode.classList.add("collapsed");
     }
 
     for (let e of document.getElementsByClassName('response-expand')) {
         e.addEventListener('click', function() {
-            e.parentNode.children[1].classList.remove("collapsed");
+            e.parentNode.classList.remove("collapsed");
         }, false);
     }
 }

@@ -31,27 +31,6 @@ ul, ol {
     margin-bottom: .2em;
     font-size: .95em; }
 
-.page {
-  max-width: 70em; }
-  @media screen and (min-width: 0) {
-    .page {
-      margin: 0 2.8169014085%; } }
-  @media screen and (min-width: 30em) {
-    .page {
-      margin: 0 4.4247787611%; } }
-  @media screen and (min-width: 40em) {
-    .page {
-      margin: 0 7.4074074074%; } }
-  @media screen and (min-width: 50em) {
-    .page {
-      margin: 0 5.1282051282%; } }
-  @media screen and (min-width: 60em) {
-    .page {
-      margin: 0 3.9215686275%; } }
-  @media screen and (min-width: 75.9574468085em) {
-    .page {
-      margin: 0 auto; } }
-
 #content {
   max-width: 100%;
   margin: 0 auto; }
@@ -190,8 +169,7 @@ article > footer {
     background-color: transparent; }
   .story-nav h1 {
     margin-left: 0.2em;
-    width: 60px;
-    display: none; }
+    width: 60px; }
     .story-nav h1 a {
       background: url("https://media.bettergov.org/BGA_logo_blue.png") no-repeat center;
       background-size: contain;
@@ -564,6 +542,17 @@ a {
 p > a, .p > a {
   border-bottom: 2px solid #c6c6c6; }
 
+@media screen and (min-width: 0) {
+  .hidden-sm {
+    display: none; } }
+@media screen and (min-width: 50em) {
+  .hidden-sm {
+    display: block; } }
+
+@media screen and (min-width: 50em) {
+  .hidden-lg {
+    display: none; } }
+
 .alert {
   display: flex; }
   .alert::before {
@@ -658,7 +647,8 @@ p > a, .p > a {
     color: #c6c6c6; }
   .candidate-bio__links a:hover, .candidate-bio__links a:focus {
     color: #28243A;
-    background: none; }
+    background: none;
+    border: none; }
 
 .questions {
   list-style: none;
@@ -775,7 +765,6 @@ p > a, .p > a {
   padding-top: 5px;
   cursor: pointer;
   font-weight: bold;
-  border-top: solid 2px #28243A;
   color: #555; }
   .response-expand:hover {
     text-decoration: underline; }
@@ -786,31 +775,49 @@ p > a, .p > a {
   height: 30px;
   position: absolute;
   background: linear-gradient(to top, white, rgba(255, 255, 255, 0));
-  top: -25px;
+  top: -30px;
   left: 0; }
 
-.response__text.collapsed {
-  max-height: 150px;
-  overflow: hidden; }
-
-.response__text.collapsed + .response-expand {
-  display: block; }
-
-.response__text:not(.collapsed) + .response-expand {
+.response-expand {
   display: none; }
 
-.app__rail a {
-  color: white;
-  transition: none;
-  display: block; }
-.app__rail a:hover, .app__rail a:focus, .app__rail a.active {
-  color: #EF484E;
-  background: transparent;
+.response.collapsed {
+  border-bottom: none; }
+  .response.collapsed .response__text {
+    max-height: 150px;
+    overflow: hidden; }
+  .response.collapsed .response-expand {
+    display: block; }
+
+.app__rail a:hover, .app__rail a:focus {
   border-bottom: none; }
 .app__rail img {
   max-width: calc(100% - 2em);
   display: block;
   margin: 0 1em 1em; }
+.app__rail h1 {
+  margin-left: 0;
+  margin-right: auto;
+  width: 60px;
+  margin-bottom: 0; }
+  .app__rail h1 a, .app__rail h1 a:hover, .app__rail h1 a:focus {
+    background: url("https://media.bettergov.org/BGA_logo_blue.png") no-repeat center;
+    background-size: contain;
+    display: block;
+    height: 40px;
+    overflow: hidden;
+    text-indent: 100%;
+    filter: grayscale(1) brightness(10); }
+.app__rail h2 {
+  color: #787878;
+  font: 700 18px/30px acumin-pro, Helvetica, Arial, sans-serif;
+  height: 30px;
+  padding-left: .25em;
+  margin-left: .25em;
+  margin-top: 5px;
+  text-transform: uppercase;
+  font-family: acumin-pro-condensed, Helvetica, Arial, sans-serif;
+  font-size: 20px; }
 
 .app__rail__nav {
   background: #28243a;
@@ -819,14 +826,43 @@ p > a, .p > a {
 .app__rail__menu {
   padding-left: 0;
   list-style: none; }
+  .app__rail__menu a {
+    color: white;
+    transition: none;
+    display: block; }
+  .app__rail__menu a:hover, .app__rail__menu a:focus, .app__rail__menu a.active {
+    color: #EF484E;
+    background: transparent;
+    border-bottom: none; }
+  @media screen and (min-width: 0) {
+    .app__rail__menu {
+      display: flex;
+      margin: 0;
+      align-items: center;
+      justify-content: flex-end; }
+      .app__rail__menu .app__rail__item--main {
+        margin: 0;
+        padding: 0;
+        border-bottom: none;
+        margin-left: 1em; }
+      .app__rail__menu .app__rail__menu--secondary {
+        display: none; } }
+  @media screen and (min-width: 50em) {
+    .app__rail__menu {
+      display: block;
+      margin: 1em 0; }
+      .app__rail__menu .app__rail__item--main {
+        margin-bottom: .4em;
+        padding-bottom: .5em;
+        border-bottom: solid 1px white;
+        margin-left: 0; }
+      .app__rail__menu .app__rail__menu--secondary {
+        display: block; } }
 
 .app__rail__item--main {
   font-size: 1.3rem;
   line-height: 1.1;
-  margin-bottom: .4em;
-  font-weight: bold;
-  border-bottom: solid 1px white;
-  padding-bottom: .5em; }
+  font-weight: bold; }
   .app__rail__item--main:last-of-type {
     border-bottom: none; }
 
@@ -883,8 +919,7 @@ p > a, .p > a {
       padding-top: 2em; } }
 
 .app__rail {
-  overflow: hidden;
-  overflow-y: scroll;
+  background: #ededee;
   box-sizing: border-box; }
   @media screen and (min-width: 0) {
     .app__rail {
@@ -892,7 +927,8 @@ p > a, .p > a {
       top: 0;
       left: 0;
       height: 40px;
-      width: 100%; }
+      width: 100%;
+      overflow: visible; }
       .app__rail img {
         display: none; } }
   @media screen and (min-width: 50em) {
@@ -900,15 +936,16 @@ p > a, .p > a {
       top: 0;
       left: auto;
       width: 200px;
-      height: auto; }
+      height: auto;
+      overflow: hidden; }
       .app__rail img {
         display: block; }
       .app__rail .app__rail__inner {
         max-height: 100vh;
         padding-top: 2em;
         overflow-y: scroll;
-        width: 110%;
-        padding-right: 10%;
+        width: calc(100% + 20px);
+        padding-right: 20px;
         box-sizing: border-box; }
       .app__rail .app__rail__nav {
         margin-bottom: 2em; } }
@@ -935,5 +972,26 @@ p > a, .p > a {
   text-align: center;
   padding-bottom: 1em;
   margin-bottom: 2em; }
+
+@media print {
+  .app__rail {
+    display: none; }
+
+  .page, .app__footer {
+    display: block;
+    width: 100%; }
+
+  .response.collapsed {
+    border-bottom: 2px solid #f1ecda; }
+    .response.collapsed .response__text {
+      max-height: none; }
+    .response.collapsed .response-expand {
+      display: none; }
+
+  .filters__wrapper {
+    display: none; }
+
+  .response {
+    flex-direction: row; } }
 
 /*# sourceMappingURL=app.css.map */
