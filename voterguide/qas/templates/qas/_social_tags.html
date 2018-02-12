@@ -1,17 +1,18 @@
 {# Twitter #}
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="{{ COPY.share.twitter_handle }}">
-<meta name="twitter:title" content="{{ COPY.share.twitter_title }}">
-<meta name="twitter:description" content="{{ COPY.share.twitter_text }}">
-<meta name="twitter:image" content="{{ COPY.share.twitter_image_url }}" />
+<meta name="twitter:site" content="@bettergov">
+<meta name="twitter:title" content="{{ title }} | BGA Illinois Voters Guide">
+<meta name="twitter:description" content="The BGA's guide to voting in the Illinois primary election, March 20th.">
+<meta name="twitter:image" content="{% static "bga_votersguide_18-01.jpg" %}" />
+
 
 {# Facebook #}
-<meta property="og:title" content="{{ COPY.share.facebook_title }}" />
-<meta property="og:url" content="{{ COPY.share.share_url }}" />
+<meta property="og:title" content="{{ title }} | BGA Illinois Voters Guide" />
+<meta property="og:url" content="{{ request.get_full_path }}" />
 <meta property="og:type" content="article" />
-<meta property="og:description" content="{{ COPY.share.facebook_text }}" />
-<meta property="og:image" content="{{ COPY.share.facebook_image_url }}" />
+<meta property="og:description" content="The BGA's guide to voting in the Illinois primary election, March 20th." />
+<meta property="og:image" content="{% static "bga_votersguide_18-01.jpg" %}" />
 <meta property="og:site_name" content="bettergov.org" />
 
 {# Google News #}
-<meta name="thumbnail" content="{{ COPY.share.google_news_image_url }}" />
+<meta name="thumbnail" content="{% static "bga_votersguide_18-01.jpg" %}" />

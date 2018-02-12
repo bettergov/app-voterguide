@@ -9,7 +9,7 @@ election = get_object_or_404(Election, slug='2018-primary')
 all_races = election.race_set.order_by('title')
 
 def index(request):
-    context = { 'all_races': all_races, 'title': "2018 Primary" }
+    context = { 'all_races': all_races, 'title': "2018 Primary Questionnaires" }
     return render(request, 'qas/election.html', context)
 
 def race(request, race_slug):
@@ -19,7 +19,7 @@ def race(request, race_slug):
         candidates = get_list_or_404(Candidate,pk__in=candidate_ids,race=race)
     except:
         candidates = None
-    title = race.title
+    title = race.title + " Candidate Questionnaire"
     context = { 'race': race, 'candidates': candidates, 'title': title, 'colors': colors, 'all_races': all_races }
     return render(request, 'qas/race.html', context)
 
@@ -30,11 +30,11 @@ def raceFromId(request, race_id):
         candidates = get_list_or_404(Candidate,pk__in=candidate_ids,race=race)
     except:
         candidates = race.candidate_set.all()
-    title = race.title
+    title = race.title + " Candidate Questionnaire"
     context = { 'race': race, 'candidates': candidates, 'title': title, 'colors': colors, 'all_races': all_races }
     return render(request, 'qas/race.html', context)
 
 def faq(request):
     election = get_object_or_404(Election, pk=1)
-    context = {'election': election,'title': "FAQ", 'all_races': all_races}
+    context = {'election': election,'title': "Voting FAQ", 'all_races': all_races}
     return render(request, 'qas/faq.html', context)
