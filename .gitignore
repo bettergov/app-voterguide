@@ -1,6 +1,7 @@
 __pycache__
 .vscode
 .sass-cache
+node_modules
 
 # Elastic Beanstalk Files
 .elasticbeanstalk/*

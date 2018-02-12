@@ -75,12 +75,8 @@ hr {
 // -------------------------
 a { transition: all .5s; }
 
-::selection,                        /* WebKit/Blink Browsers */
-::-moz-selection {                  /* Gecko Browsers */
+::selection {
     background: $yellow-highlight; 
-}
-::-moz-selection {
-    background: $yellow-highlight;
 }
 
 .sr-only {
