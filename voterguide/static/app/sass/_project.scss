@@ -218,6 +218,10 @@ p > a { border-bottom: 2px solid $gray-lighter; }
     .filters { grid-template-columns: repeat(2, 1fr); }
 }
 
+@include breakpoint-min( md ) {
+    .filters { grid-template-columns: repeat(3, 1fr); }
+}
+
 @include breakpoint-min( lg ) {
     .filters { grid-template-columns: repeat(4, 1fr); }
     .candidates { grid-template-columns: repeat(3, 1fr); }

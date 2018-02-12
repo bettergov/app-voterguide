@@ -2,17 +2,6 @@
 
 {% load qas_extras %}
 
-{% block extra_head %}
-<style>
-{% for candidate in race.candidate_set.all|sortLastName %}
-/*[data-candidate-key="{{ candidate.pk }}"] {
-    background-color: {{ colors|lookup:forloop.counter0 }};
-}*/
-{% endfor %}
-</style>
-{% endblock extra_head %}
-
-
 {% block nav %}
 <header role="banner" class="app__rail">
     <div class="app__rail__inner">
@@ -44,7 +33,7 @@
 {% endblock nav %}
 
 {% block content %}
-<div class="kicker">2018 Illinois Primary Election • <a href="/races">Browse races</a></div>
+<div class="kicker">2018 Illinois Primary Election • <a href="..">Browse races</a></div>
 <h1 style="margin-top: 0;">{{ race.title }}</h1>
 <section class="filters__wrapper">
     <h2 style="margin-bottom: .2em;">Choose the candidates</h2>
