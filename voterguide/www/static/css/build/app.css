@@ -867,6 +867,8 @@ p > a, .p > a {
   line-height: 1.1;
   font-weight: bold; }
   .app__rail__item--main:last-of-type {
+    margin-bottom: 0;
+    padding-bottom: 0;
     border-bottom: none; }
 
 .app__rail__item--secondary {
