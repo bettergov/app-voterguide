@@ -700,15 +700,15 @@ p > a, .p > a {
 @media screen and (min-width: 30em) {
   .filters {
     grid-template-columns: repeat(2, 1fr); } }
-@media screen and (min-width: 40em) {
-  .filters {
-    grid-template-columns: repeat(3, 1fr); } }
 @media screen and (min-width: 50em) {
   .filters {
-    grid-template-columns: repeat(4, 1fr); }
+    grid-template-columns: repeat(3, 1fr); }
 
   .candidates {
     grid-template-columns: repeat(3, 1fr); } }
+@media screen and (min-width: 60em) {
+  .filters {
+    grid-template-columns: repeat(4, 1fr); } }
 .candidate-filter {
   cursor: pointer;
   position: relative;
