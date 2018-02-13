@@ -3,9 +3,11 @@ let appInit = function() {
 
     const params = new URLSearchParams(location.search);
 
-    for (let f of filters) {
+    for (var i = 0; i < filters.length; i++) {
+        let f = filters[i];
         f.addEventListener('click', function() {
-            let key = f.dataset.candidateKey;
+            console.log(f);
+            var key = f.dataset.candidateKey;
             let candidates = new Set();
             for (let v of params.values()) candidates.add(v);
 
@@ -23,14 +25,18 @@ let appInit = function() {
             window.history.replaceState({}, '', `${location.pathname}?${params}`);
             window.location.reload();
         }, false);
-    }
+    };
 
 
-    for (let r of document.getElementsByClassName('response__text')) {
+    let responses = document.getElementsByClassName('response__text');
+    for (var i = 0; i < responses.length; i++) {
+        let r = responses[i];
         if (r.clientHeight > 150) r.parentNode.classList.add("collapsed");
     }
 
-    for (let e of document.getElementsByClassName('response-expand')) {
+    let expanders = document.getElementsByClassName('response-expand');
+    for (var i = 0; i < expanders.length; i++) {
+        let e = expanders[i];
         e.addEventListener('click', function() {
             e.parentNode.classList.remove("collapsed");
         }, false);
