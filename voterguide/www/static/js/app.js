@@ -37,7 +37,7 @@ function appInit() {
     for (var i = 0; i < expanders.length; i++) {
         var e = expanders[i];
         e.addEventListener('click', function() {
-            e.parentNode.classList.remove("collapsed");
+            this.parentNode.classList.remove("collapsed");
         }, false);
     }
 }
