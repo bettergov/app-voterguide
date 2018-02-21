@@ -276,6 +276,14 @@ p > a { border-bottom: 2px solid $gray-lighter; }
     box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.5);
 }
 
+.candidate-filter--inactive {
+    color: $story-accent;
+    cursor: default !important;
+    pointer-events: none;
+
+    &::before { content: none; }
+}
+
 // "Read more" for responses
 // -------------------------
 .response { 

@@ -7,24 +7,28 @@ function appInit() {
 
         for (var i = 0; i < filters.length; i++) {
             var filter = filters[i];
-            filter.addEventListener('click', function() {
-                var key = this.dataset.candidateKey;
+            if (filter.classList.contains('candidate-filter--inactive')) {
+                // Don't add event listener
+            } else {
+                filter.addEventListener('click', function() {
+                    var key = this.dataset.candidateKey;
 
-                // Get candidates from URL
-                var candidates = new Set(params.getAll('candidate[]'));
+                    // Get candidates from URL
+                    var candidates = new Set(params.getAll('candidate[]'));
 
-                if (candidates.has(key)) {
-                    candidates.delete(key);
-                } else {
-                    candidates.add(key);
-                }
+                    if (candidates.has(key)) {
+                        candidates.delete(key);
+                    } else {
+                        candidates.add(key);
+                    }
 
-                params.delete('candidate[]');
-                candidates.forEach(function(c){ params.append('candidate[]', c); })
+                    params.delete('candidate[]');
+                    candidates.forEach(function(c){ params.append('candidate[]', c); })
 
-                window.history.replaceState({}, '', `${location.pathname}?${params}`);
-                window.location.reload();
-            }, false);
+                    window.history.replaceState({}, '', `${location.pathname}?${params}`);
+                    window.location.reload();
+                }, false);
+            }
         };
     } catch(error) {
         var string = location.search;
@@ -33,24 +37,29 @@ function appInit() {
 
         for (var i = 0; i < filters.length; i++) {
             var filter = filters[i];
-            filter.addEventListener('click', function() {
-                var key = this.dataset.candidateKey;
 
-                // Get candidates from URL
-                var candidates = new Set(matches);
+            if (filter.classList.contains('candidate-filter--inactive')) {
+                // Don't add event listener
+            } else {
+                filter.addEventListener('click', function() {
+                    var key = this.dataset.candidateKey;
 
-                if (candidates.has(key)) {
-                    candidates.delete(key);
-                } else {
-                    candidates.add(key);
-                }
+                    // Get candidates from URL
+                    var candidates = new Set(matches);
 
-                var params = "";
-                candidates.forEach(function(d){ params += 'candidate[]=' + d + '&'});
+                    if (candidates.has(key)) {
+                        candidates.delete(key);
+                    } else {
+                        candidates.add(key);
+                    }
 
-                window.history.replaceState({}, '', `${location.pathname}?${params}`);
-                window.location.reload();
-            }, false);
+                    var params = "";
+                    candidates.forEach(function(d){ params += 'candidate[]=' + d + '&'});
+
+                    window.history.replaceState({}, '', `${location.pathname}?${params}`);
+                    window.location.reload();
+                }, false);
+            }
         };
     }
 

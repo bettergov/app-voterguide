@@ -36,6 +36,8 @@ class Candidate(models.Model):
         ('GOP', 'Republican'),
         ('DEM', 'Democrat')
     )
+    special_status = models.CharField(max_length=255, blank=True)
+    is_inactive = models.BooleanField(default=False)
     party = models.CharField(max_length=3, choices = PARTY_CHOICES)
     website = models.URLField(help_text="The url for the candidate's website.", blank=True)
     facebook = models.URLField(help_text="The url for the candidate's Facebook.", blank=True)

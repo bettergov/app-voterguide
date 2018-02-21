@@ -748,6 +748,13 @@ p > a, .p > a {
 .candidate-filter:focus {
   box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.5); }
 
+.candidate-filter--inactive {
+  color: #28243A;
+  cursor: default !important;
+  pointer-events: none; }
+  .candidate-filter--inactive::before {
+    content: none; }
+
 .response {
   position: relative;
   flex-wrap: wrap; }

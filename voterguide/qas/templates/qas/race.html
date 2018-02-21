@@ -42,15 +42,22 @@
         {% for candidate in race.candidate_set.all|sortLastName %}
         {% if candidate in candidates %}
         <li class="candidate-filter candidate-filter--selected" data-candidate-key={{candidate.pk}}>
+        {% elif candidate.is_inactive %}
+        <li class="candidate-filter candidate-filter--inactive" data-candidate-key={{candidate.pk}}>
         {% else %}
-        <li class="candidate-bio candidate-filter" data-candidate-key={{candidate.pk}}>
+        <li class="candidate-filter" data-candidate-key={{candidate.pk}}>
         {% endif %}
             {% if candidate.image %}
             <img class="candidate-img" src="{{ candidate.image.url }}">
             {% else %}
             <div class="candidate-img"><i class="fas fa-user"></i></div>
             {% endif %}
-            <h3 class="candidate-bio__name">{{ candidate.name }}</h3>
+            <div class="candidate-description">
+                <h3 class="candidate-bio__name">{{ candidate.name }}</h3>
+                {% if candidate.special_status %}
+                <p style="font-size: small;">{{ candidate.special_status }}</p>
+                {% endif %}
+            </div>
         </li>
         {% endfor %}
     </ul>
