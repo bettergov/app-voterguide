@@ -56,6 +56,8 @@
                 <h3 class="candidate-bio__name">{{ candidate.name }}</h3>
                 {% if candidate.special_status %}
                 <p style="font-size: small;">{{ candidate.special_status }}</p>
+                {% elif candidate.is_incumbent %}
+                <p style="font-size: small;">Incumbent</p>
                 {% endif %}
             </div>
         </li>
