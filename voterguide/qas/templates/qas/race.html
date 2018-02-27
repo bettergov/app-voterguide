@@ -13,7 +13,7 @@
                     <a href="{% url 'faq' %}">Voting FAQ</a>
                 </li>
                 <li class="app__rail__item--main">
-                    <a href="{% url 'races:index' %}">Races</a>
+                    <a href="{% url 'races:index' %}">Questionnaires</a>
                     <ul class="app__rail__menu--secondary">
                         {% for r in all_races|dictsort:"weight" %}
                         <li class="app__rail__item--secondary">
