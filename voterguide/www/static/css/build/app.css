@@ -533,7 +533,7 @@ img {
   max-width: 100%; }
 
 a {
-  text-decoration: underline;
+  text-decoration: none;
   -webkit-text-decoration-color: #c6c6c6;
           text-decoration-color: #c6c6c6;
   transition: none; }
@@ -542,6 +542,11 @@ a {
     color: #EF484E;
     -webkit-text-decoration-color: #EF484E;
             text-decoration-color: #EF484E; }
+
+p > a, .p > a {
+  text-decoration: underline; }
+  p > a:hover, .p > a:hover, p > a:focus, .p > a:focus {
+    text-decoration: underline; }
 
 @media screen and (min-width: 0) {
   .hidden-sm {
@@ -558,7 +563,8 @@ a {
   font-size: 1.2em;
   margin-bottom: .5em;
   color: #555;
-  font-style: italic; }
+  font-style: italic;
+  text-align: center; }
 
 .alert {
   display: flex; }
@@ -947,7 +953,7 @@ a {
   @media screen and (min-width: 0) {
     .app__rail {
       position: fixed;
-      top: 3em;
+      top: 0;
       left: 0;
       height: 40px;
       width: 100%;
@@ -956,7 +962,7 @@ a {
         display: none; } }
   @media screen and (min-width: 50em) {
     .app__rail {
-      top: 0;
+      top: 4em;
       left: auto;
       width: 200px;
       height: auto;
