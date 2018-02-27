@@ -98,6 +98,7 @@ p > a {
         color: inherit;
         background:  #FFA8A8;
         border-bottom: 2px solid #FFA8A8;
+        text-decoration: none;
 
         &::after { border-color: #FFA8A8; }
     }
