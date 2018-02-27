@@ -534,8 +534,8 @@ img {
 
 a {
   text-decoration: none;
-  -webkit-text-decoration-color: #c6c6c6;
-          text-decoration-color: #c6c6c6;
+  -webkit-text-decoration-color: #EF484E;
+          text-decoration-color: #EF484E;
   transition: none; }
   a:hover, a:focus {
     background: transparent;
@@ -586,7 +586,8 @@ p > a, .p > a {
   font-weight: bold;
   border-bottom: solid 2px #FFA8A8;
   display: table;
-  border-radius: 3px; }
+  border-radius: 3px;
+  text-decoration: none; }
   .button::after {
     content: "\f054";
     font-family: "Font Awesome 5 Free";

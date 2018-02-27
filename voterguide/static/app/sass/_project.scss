@@ -22,7 +22,7 @@ a {
     }
 }
 
-p > a:not(.button) {
+p > a {
     text-decoration: underline;
 
     &:hover, &:focus {
@@ -79,6 +79,7 @@ p > a:not(.button) {
     border-bottom: solid 2px #FFA8A8;
     display: table;
     border-radius: 3px;
+    text-decoration: none;
 
     &::after {
         content: "\f054";

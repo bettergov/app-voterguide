@@ -540,9 +540,9 @@ a {
     color: #EF484E;
     text-decoration-color: #EF484E; }
 
-p > a:not(.button), .p > a:not(.button) {
+p > a, .p > a {
   text-decoration: underline; }
-  p > a:not(.button):hover, .p > a:not(.button):hover, p > a:not(.button):focus, .p > a:not(.button):focus {
+  p > a:hover, .p > a:hover, p > a:focus, .p > a:focus {
     text-decoration: underline; }
 
 @media screen and (min-width: 0) {
@@ -583,7 +583,8 @@ p > a:not(.button), .p > a:not(.button) {
   font-weight: bold;
   border-bottom: solid 2px #FFA8A8;
   display: table;
-  border-radius: 3px; }
+  border-radius: 3px;
+  text-decoration: none; }
   .button::after {
     content: "\f054";
     font-family: "Font Awesome 5 Free";
