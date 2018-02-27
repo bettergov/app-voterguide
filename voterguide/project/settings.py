@@ -164,7 +164,8 @@ CKEDITOR_CONFIGS = {
             ['Bold', 'Italic', 'Underline'],
             ['NumberedList', 'BulletedList', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
             ['Link', 'Unlink'],
-            ['Format', 'RemoveFormat', 'Source']
+            ['Format', 'RemoveFormat', 'Source'],
+            ['Image']
         ],
         'height': 150,
         'extraAllowedContent': 'div(class),a(href,class)',

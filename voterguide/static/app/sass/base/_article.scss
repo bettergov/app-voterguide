@@ -45,6 +45,8 @@ article > footer > * {
     font: bold 1em $font-family-condensed;
     color: $gray-light;
     text-transform: uppercase;
+
+    a { color: $gray-light; }
 }
 
 .subhead {

@@ -8,18 +8,19 @@ p { font: 1em/1.2 $font-family-sans-serif; }
 
 h1 { margin-top: 0; }
 
+img { max-width: 100%; }
+
 a { 
-    text-decoration: none;
+    text-decoration: underline;
+    text-decoration-color: $gray-lighter;
     transition: none;
 
     &:hover, &:focus {
         background: transparent;
         color: #EF484E;
-        border-bottom: 2px solid #EF484E;
+        text-decoration-color: #EF484E;
     }
 }
-
-p > a { border-bottom: 2px solid $gray-lighter; }
 
 .hidden-sm {
     @include breakpoint-min( xs ) {
@@ -35,6 +36,13 @@ p > a { border-bottom: 2px solid $gray-lighter; }
     @include breakpoint-min( lg ) {
         display: none;
     }
+}
+
+.top-text {
+    font-size: 1.2em;
+    margin-bottom: .5em;
+    color: $gray;
+    font-style: italic;
 }
 
 .alert {
@@ -449,7 +457,7 @@ p > a { border-bottom: 2px solid $gray-lighter; }
 
 .app__rail__item--main {
 
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     line-height: 1.1;
     font-weight: bold;
 
@@ -513,7 +521,7 @@ p > a { border-bottom: 2px solid $gray-lighter; }
 
     @include breakpoint-min( xs ) {
         position: fixed;
-        top: 0;
+        top: 3em;
         left: 0;
         height: 40px;
         width: 100%;
@@ -533,7 +541,6 @@ p > a { border-bottom: 2px solid $gray-lighter; }
 
         .app__rail__inner {
             max-height: 100vh;
-            padding-top: 2em;
             overflow-y: scroll;
             width: calc(100% + 20px);
             padding-right: 20px;

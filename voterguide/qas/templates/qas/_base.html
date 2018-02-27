@@ -43,6 +43,8 @@
 
     <a class="sr-only" href="#content">Skip To Content</a>
 
+    <div class="top-text">Your non-partisan guide to the Illinois primary election — March 20th, 2018</div>
+
     {% block nav %}
     <header role="banner" class="app__rail">
         <div class="app__rail__inner">
@@ -54,7 +56,7 @@
                         <a href="{% url 'faq' %}">Voting FAQ</a>
                     </li>
                     <li class="app__rail__item--main">
-                        <a href="{% url 'races:index' %}">Races</a>
+                        <a href="{% url 'races:index' %}">Questionnaires</a>
                         <ul class="app__rail__menu--secondary">
                             {% for r in all_races|dictsort:"weight" %}
                             <li class="app__rail__item--secondary">
