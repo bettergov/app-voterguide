@@ -533,16 +533,16 @@ img {
 
 a {
   text-decoration: none;
-  text-decoration-color: #c6c6c6;
+  text-decoration-color: #EF484E;
   transition: none; }
   a:hover, a:focus {
     background: transparent;
     color: #EF484E;
     text-decoration-color: #EF484E; }
 
-p > a, .p > a {
+p > a:not(.button), .p > a:not(.button) {
   text-decoration: underline; }
-  p > a:hover, .p > a:hover, p > a:focus, .p > a:focus {
+  p > a:not(.button):hover, .p > a:not(.button):hover, p > a:not(.button):focus, .p > a:not(.button):focus {
     text-decoration: underline; }
 
 @media screen and (min-width: 0) {

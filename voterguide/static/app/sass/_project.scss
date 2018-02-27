@@ -12,7 +12,7 @@ img { max-width: 100%; }
 
 a { 
     text-decoration: none;
-    text-decoration-color: $gray-lighter;
+    text-decoration-color: #EF484E;
     transition: none;
 
     &:hover, &:focus {
@@ -22,7 +22,7 @@ a {
     }
 }
 
-p > a {
+p > a:not(.button) {
     text-decoration: underline;
 
     &:hover, &:focus {
