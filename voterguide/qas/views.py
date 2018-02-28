@@ -19,8 +19,13 @@ def race(request, race_slug):
         candidates = get_list_or_404(Candidate,pk__in=candidate_ids,race=race)
     except:
         candidates = None
+    contains_responses = False
+    if candidates:
+        for c in candidates:
+            if c.experience:
+                contains_responses = True
     title = race.title + " Candidate Questionnaire"
-    context = { 'race': race, 'candidates': candidates, 'title': title, 'colors': colors, 'all_races': all_races }
+    context = { 'race': race, 'candidates': candidates, 'contains_responses': contains_responses, 'title': title, 'colors': colors, 'all_races': all_races }
     return render(request, 'qas/race.html', context)
 
 def raceFromId(request, race_id):
@@ -30,8 +35,13 @@ def raceFromId(request, race_id):
         candidates = get_list_or_404(Candidate,pk__in=candidate_ids,race=race)
     except:
         candidates = race.candidate_set.all()
+    contains_responses = False
+    if candidates:
+        for c in candidates:
+            if c.experience:
+                contains_responses = True
     title = race.title + " Candidate Questionnaire"
-    context = { 'race': race, 'candidates': candidates, 'title': title, 'colors': colors, 'all_races': all_races }
+    context = { 'race': race, 'candidates': candidates, 'contains_responses': contains_responses, 'title': title, 'colors': colors, 'all_races': all_races }
     return render(request, 'qas/race.html', context)
 
 def faq(request):

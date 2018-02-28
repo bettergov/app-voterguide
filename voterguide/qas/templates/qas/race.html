@@ -90,31 +90,36 @@
     </li>
     {% endfor %}
     </ul>
+{% endif %}
 
+{% if contains_responses %}
     <h2>Questions:</h2>
     <ol class="questions">
         <li class="question">
             <h3 class="question__text">Elected offices held and civic involvement</h3>
             {% for candidate in candidates|sortLastName %}
+                {% if candidate.experience %}
                 <div class="response" data-candidate-key="{{candidate.pk}}">
                     <div class="response__mug">
                         {% if candidate.image %}
                         <img class="response__mug__img candidate-img" src="{{ candidate.image.url }}">
                         {% endif %}
                     </div>
-
+                    
                     <div class="response__text">
                         <span class="response__name">{{ candidate.name|lastName }}</span>
                         {{ candidate.experience|default:"<p>No response</p>"|safe }}
                     </div>
                     <button class="response-expand">Read full response <i class="fas fa-chevron-down"></i></button>
                 </div>
+                {% endif %}
             {% endfor %}
         </li>
     {% for question in race.question_set.all %}
         <li class="question" id="question-{{ question.pk }}">
             <h3 class="question__text">{{ question.question_text }}</h3>
             {% for candidate in candidates|sortLastName %}
+            {% if candidate.experience %}
             <div class="response" data-candidate-key="{{candidate.pk}}">
                 <div class="response__mug">
                     {% if candidate.image %}
@@ -129,6 +134,7 @@
                 </div>
                 <button class="response-expand">Read full response <i class="fas fa-chevron-down"></i></button>
             </div>
+            {% endif %}
             {% endfor %}
         </li>
         {% endfor %}
