@@ -96,7 +96,7 @@ else:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
-            'NAME': 'voterguide',
+            'NAME': 'votersguide',
             'USER': 'postgres',
             'PASSWORD': 'postgres',
             'HOST': '',
@@ -144,15 +144,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
-# STATIC_ROOT = os.path.join(PROJECT_DIR, "..", "www", 'static')
+# STATIC_ROOT = os.path.join(BASE_DIR, "www/static")
 STATIC_URL = '/static/'
-
-MEDIA_ROOT = os.path.join(PROJECT_DIR, "..", "www", 'media')
-MEDIA_URL = '/media/'
-
 STATICFILES_DIRS = [
-    os.path.join(PROJECT_DIR, "..", 'www', 'static')
+  os.path.join(BASE_DIR, "www/static")
 ]
+
+MEDIA_ROOT = os.path.join(BASE_DIR, "www/media")
+MEDIA_URL = '/media/'
 
 # CKEditor configuration
 # https://docs.ckeditor.com/ckeditor4/latest/guide/dev_configuration.html
@@ -192,3 +191,5 @@ if 'RDS_DB_NAME' in os.environ:
 MEDIAFILES_LOCATION = os.path.join(PROJECT_NAME, 'media')
 DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
 
+# django bakery
+BUILD_DIR = os.path.join(os.path.dirname(BASE_DIR), 'build')

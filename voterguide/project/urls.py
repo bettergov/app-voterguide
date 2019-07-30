@@ -16,6 +16,8 @@ Including another URLconf
 from django.urls import include, path
 from django.contrib import admin
 from django.views.generic.base import RedirectView
+from django.conf import settings
+from django.conf.urls.static import static
 import qas
 
 urlpatterns = [
@@ -26,3 +28,7 @@ urlpatterns = [
     path('2018-primary', RedirectView.as_view(url='/2018-primary/races/', permanent=False)),
     path('', RedirectView.as_view(url='2018-primary/faq/', permanent=False))
 ]
+
+if settings.STATIC_ROOT:
+  urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

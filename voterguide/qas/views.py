@@ -14,7 +14,8 @@ def index(request):
 
 def race(request, race_slug):
     race = get_object_or_404(Race, slug=race_slug)
-    candidate_ids = request.GET.getlist('candidate[]')
+    # candidate_ids = request.GET.getlist('candidate[]')
+    candidate_ids = race.candidate_set.filter(is_inactive=False)
     try:
         candidates = get_list_or_404(Candidate,pk__in=candidate_ids,race=race)
     except:

@@ -37,15 +37,15 @@
 <h1 style="margin-top: 0;">{{ race.title }}</h1>
 <section class="filters__wrapper">
     <h2 style="margin-bottom: .2em;">Choose the candidates</h2>
-    <p>Select any number of candidates to compare their answers to the BGA questionnaire.</p>
+    {# <p>Select any number of candidates to compare their answers to the BGA questionnaire.</p> #}
     <ul class="filters">
         {% for candidate in race.candidate_set.all|sortLastName %}
         {% if candidate in candidates %}
-        <li class="candidate-filter candidate-filter--selected" data-candidate-key={{candidate.pk}}>
+        <button class="candidate-filter candidate-filter--selected" data-candidate-key={{candidate.pk}}>
         {% elif candidate.is_inactive %}
-        <li class="candidate-filter candidate-filter--inactive" data-candidate-key={{candidate.pk}}>
+        <button class="candidate-filter candidate-filter--inactive" data-candidate-key={{candidate.pk}}>
         {% else %}
-        <li class="candidate-filter" data-candidate-key={{candidate.pk}}>
+        <button class="candidate-filter" data-candidate-key={{candidate.pk}}>
         {% endif %}
             {% if candidate.image %}
             <img class="candidate-img" src="{{ candidate.image.url }}">
@@ -60,7 +60,7 @@
                 <p style="font-size: small;">Incumbent</p>
                 {% endif %}
             </div>
-        </li>
+        </button>
         {% endfor %}
     </ul>
 </section>

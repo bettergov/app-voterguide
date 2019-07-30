@@ -1,0 +1,35 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[dev-packages]
+
+[packages]
+astroid = "==1.6.1"
+"boto3" = "==1.5.22"
+botocore = "==1.8.36"
+django-ckeditor = "==5.4.0"
+django-js-asset = "==1.0.0"
+django-storages = "==1.6.5"
+docutils = "==0.14"
+isort = "==4.3.2"
+jmespath = "==0.9.3"
+lazy-object-proxy = "==1.3.1"
+mccabe = "==0.6.1"
+"psycopg2" = "==2.7.3.2"
+pylint = "==1.8.2"
+python-dateutil = "==2.6.1"
+pytz = "==2017.3"
+"s3transfer" = "==0.1.12"
+six = "==1.11.0"
+webcolors = "==1.7"
+wrapt = "==1.10.11"
+Django = "==2.0.1"
+Markdown = "==2.6.11"
+Pillow = "==5.0.0"
+ipython = "*"
+django-bakery = "*"
+
+[requires]
+python_version = "3.6"
